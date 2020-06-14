@@ -1,9 +1,11 @@
 ﻿@page "/"
 @inject FlipkartService _flipkartService
 
+<h1>Weather forecast</h1>
 
+<p>This component demonstrates fetching data from a service.</p>
 <div class="row">
-    @if (flipkartAllOffers.allOffersList.Count() == 0)
+    @if (flipkartAllOffers == null)
     {
         <p><em>No record found.</em></p>
     }
@@ -34,11 +36,12 @@
 @code{
 
     int recordParpage = 100;
-    private FlipkartAllOffers flipkartAllOffers = new FlipkartAllOffers();
+    private FlipkartAllOffers flipkartAllOffers;
 
     protected override async Task OnInitializedAsync()
     {
         flipkartAllOffers = await _flipkartService.ProcessAllOffers();
+
     }
 }
 
