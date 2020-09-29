@@ -1,15 +1,40 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="sidebar">
+    <HeaderNavBar />
     <NavMenu />
-</div>
 
-<div class="main">
-    <div class="top-row px-4">
-        <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-    </div>
-
-    <div class="content px-4">
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        
+        <!-- Main content -->
         @Body
+        <!-- /.content -->
     </div>
-</div>
+    <!-- /.content-wrapper -->
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2019-2020 <a href="https://lootloonline.com">LootLoOnline.Com</a>.</strong>
+        All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+            <b>Version</b> V1
+        </div>
+    </footer>
+
+    @*<div class="sidebar">
+            <NavMenu />
+        </div>*@
+
+    @*<div class="main">
+            <div class="top-row px-4">
+                <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+            </div>
+
+            <div class="content px-4">
+                @Body
+            </div>
+        </div>*@

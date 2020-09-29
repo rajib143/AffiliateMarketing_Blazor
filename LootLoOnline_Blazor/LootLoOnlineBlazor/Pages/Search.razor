@@ -1,0 +1,70 @@
+﻿@inject FlipkartOfferAdapter OfferAdapter
+@using Blazored.Typeahead
+@using LootLoOnline.Business.Models
+
+
+        @*<input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search"/> bind-Value="SelectedOfferCatagory"*@
+        <BlazoredTypeahead SearchMethod="SearchCatagory"
+                           TValue="OfferCatagory"
+                           TItem="OfferCatagory"
+                           Value="SelectedOfferCatagory"
+                           ValueChanged="@((OfferCatagory s) => SelectedResultChanged(s))"
+                           ValueExpression="@(() => SelectedOfferCatagory )"
+                           ShowDropDownOnFocus="true"
+                           EnableDropDown="true"
+                           Placeholder="Search by Catagory">
+            <SelectedTemplate Context="SelectedOfferCatagory">
+                @SelectedOfferCatagory.Name
+            </SelectedTemplate>
+            <ResultTemplate Context="SelectedOfferCatagory">
+                @SelectedOfferCatagory.Name
+            </ResultTemplate>
+            <NotFoundTemplate>
+                Sorry, no search results found.
+            </NotFoundTemplate>
+        </BlazoredTypeahead>
+        @*<div class="input-group-append">
+                @if (SelectedOfferCatagory != null)
+            {
+                <p>Selected Catagory: @SelectedOfferCatagory.Name</p>
+            }
+                <button class="btn btn-navbar" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+            </div>*@
+
+
+
+@code {
+    private List<OfferCatagory> offerCatagories;
+    private OfferCatagory SelectedOfferCatagory;
+
+    [Parameter] public EventCallback<OfferCatagory> OnSelect { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        offerCatagories = await OfferAdapter.GetOfferCatagories();
+
+       // await appStateService.SetIfNull(offerCatagories.FirstOrDefault());
+    }
+
+    private async Task<IEnumerable<OfferCatagory>> SearchCatagory(string searchTest)
+    {
+        return await Task.FromResult(offerCatagories.Where(x => x.Name.ToLower().Contains(searchTest.ToLower())).ToList());
+    }
+
+    private async Task SelectedResultChanged(OfferCatagory result)
+    {
+        if (result == null)
+        {
+            return;
+        }
+        SelectedOfferCatagory = result;
+
+       await OnSelect.InvokeAsync(result);
+
+        //await appStateService.SetCatagoryValue(result);
+
+    }
+}

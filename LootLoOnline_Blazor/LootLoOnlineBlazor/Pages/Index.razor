@@ -1,46 +1,29 @@
 ﻿@page "/"
-@inject FlipkartService _flipkartService
+@implements IDisposable
 
-<h1>Weather forecast</h1>
-
-<p>This component demonstrates fetching data from a service.</p>
-<div class="row">
-    @if (flipkartAllOffers == null)
-    {
-        <p><em>No record found.</em></p>
-    }
-    else
-    {
-        foreach (var offer in flipkartAllOffers.allOffersList)
-        {
-            <div class="col-md-3">
-                <div class="card mb-4 box-shadow">
-                    <img class="card-img-top" loading="lazy" alt="@offer.title" style="height: 225px; width: 100%; display: block;" src="@offer.imageUrls.First().url" data-holder-rendered="true">
-                    <div class="card-body">
-                        <p class="card-text">@(offer.name + offer.title)</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Shop Now</button>
-
-                            </div>
-                            <small class="text-muted">@(offer.endTime.UnixTimeToDateTime().Result)</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        }
-    }
-
+<ContentHeader ContentList="lstContent"></ContentHeader>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- /.col-md-6 -->
+            <Deals />
+            <!-- /.col-md-6 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
 </div>
 
-@code{
+@code {
 
-    int recordParpage = 100;
-    private FlipkartAllOffers flipkartAllOffers;
-
-    protected override async Task OnInitializedAsync()
+    List<string> lstContent = new List<string> { "Index" };
+    protected override void OnInitialized()
     {
-        flipkartAllOffers = await _flipkartService.ProcessAllOffers();
+
+    }
+
+    public void Dispose()
+    {
 
     }
 }

@@ -40,15 +40,15 @@
           "dependencies": {
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
-              "version": "[3.1.5, )"
+              "version": "[3.1.8, )"
             },
             "NLog": {
               "target": "Package",
-              "version": "[4.7.2, )"
+              "version": "[4.7.4, )"
             },
             "NLog.Web.AspNetCore": {
               "target": "Package",
-              "version": "[4.9.2, )"
+              "version": "[4.9.3, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -73,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -115,9 +115,33 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Blazored.Typeahead": {
+              "target": "Package",
+              "version": "[4.2.2, )"
+            },
+            "FontAwesome": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "Jquery.LazyLoad": {
+              "target": "Package",
+              "version": "[1.8.4, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
             "NLog": {
               "target": "Package",
-              "version": "[4.7.2, )"
+              "version": "[4.7.4, )"
+            },
+            "bootstrap": {
+              "target": "Package",
+              "version": "[4.5.2, )"
+            },
+            "jQuery": {
+              "target": "Package",
+              "version": "[3.5.1, )"
             }
           },
           "imports": [
@@ -138,7 +162,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -9,8 +9,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using LootLoOnlineBlazor.Data;
 using LootLoOnline.Business.Services;
+using LootLoOnline.Business.BusinessClass;
+using LootLoOnline.Business.Interface;
 
 namespace LootLoOnlineBlazor
 {
@@ -29,8 +30,11 @@ namespace LootLoOnlineBlazor
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
+            services.AddMemoryCache();
             services.AddSingleton<FlipkartService>();
+            services.AddSingleton<OfferAdapter>();
+            services.AddSingleton<FlipkartOfferAdapter>();
+            services.AddSingleton<AppStateService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

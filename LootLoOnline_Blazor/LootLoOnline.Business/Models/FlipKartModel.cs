@@ -96,6 +96,12 @@ namespace LootLoOnline.Business.Models
     #region FlipkartProductModel
     public class FlipkartProducts
     {
+        public FlipkartProducts()
+        {
+            products = new List<Product>();
+        }
+        public long validTill { get; set; }
+        public ProductCatagory productCatagory { get; set; }
         public List<Product> products { get; set; }
     }
 
@@ -111,9 +117,9 @@ namespace LootLoOnline.Business.Models
         public shippingCharge shippingCharges { get; set; }
         public string estimatedDeliveryTime { get; set; }
         public string sellerName { get; set; }
-        public string sellerAverageRating { get; set; }
-        public string sellerNoOfRatings { get; set; }
-        public string sellerNoOfReviews { get; set; }
+        public decimal? sellerAverageRating { get; set; }
+        public decimal? sellerNoOfRatings { get; set; }
+        public decimal? sellerNoOfReviews { get; set; }
     }
 
     public class shippingCharge
@@ -135,7 +141,7 @@ namespace LootLoOnline.Business.Models
         public string productId { get; set; }
         public string title { get; set; }
         public string productDescription { get; set; }
-        public object imageUrls { get; set; }
+        public Dictionary<string,string> imageUrls { get; set; }
         public object productFamily { get; set; }
         public Price maximumRetailPrice { get; set; }
         public Price flipkartSellingPrice { get; set; }
