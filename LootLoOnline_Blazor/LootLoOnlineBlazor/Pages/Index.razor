@@ -7,8 +7,21 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
+            <div class="col-12">
+                <!-- Default box -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="input-group input-group-sm">
+                            <SearchByTitle OnSearchChanged="SearchByTitle" />
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card -->
+            </div>
+
+
             <!-- /.col-md-6 -->
-            <Deals dealsOfTheDayList="@dealsOfTheDayList"/>
+            <Deals dealsOfTheDayList="@dealsOfTheDayList" />
             <!-- /.col-md-6 -->
         </div>
         <!-- /.row -->
@@ -27,7 +40,17 @@
         appState.SetdealsOfTheDay(dealsOfTheDayList);
         appState.SetPageTitle("Welcome to");
     }
-
+    private async Task SearchByTitle(string searchTerm)
+    {
+        if (!string.IsNullOrEmpty(searchTerm))
+        {
+            dealsOfTheDayList = dealsOfTheDayList.Where(x => x.title.Contains(searchTerm) || x.name.Contains(searchTerm)).ToList();
+        }
+        else
+        {
+            dealsOfTheDayList = await OfferAdapter.GetDealsOfTheDay();
+        }
+    }
     public void Dispose()
     {
 
