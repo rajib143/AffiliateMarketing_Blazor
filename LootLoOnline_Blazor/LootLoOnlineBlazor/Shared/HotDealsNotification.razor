@@ -1,0 +1,42 @@
+﻿@inject AppStateService appState
+@implements IDisposable
+
+<a class="nav-link" data-toggle="dropdown" href="#">
+    <i class="far fa-comments"></i>
+    <span class="badge badge-warning navbar-badge">@appState.alertHotDealList.Count</span>
+</a>
+<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+
+    @foreach (var offer in appState.alertHotDealList)
+    {
+        <a href="@offer.url" target="_blank" class="dropdown-item">
+         
+            <div class="media">
+                <img alt="@(offer.name + offer.title)" src="@offer.imageUrl" class="img-size-50 mr-3 img-circle">
+                <div class="media-body">
+                    <h3 class="dropdown-item-title">
+                        @(offer.name )
+                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                    </h3>
+                    <p class="text-sm">@(offer.title)</p>
+                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> @((offer.endTime.UnixTimeToDateTime()-DateTime.Now).Hours) Hours Ago</p>
+                </div>
+            </div>
+          
+        </a>
+        <div class="dropdown-divider"></div>
+    }
+
+
+    <div class="dropdown-divider"></div>
+    <a href="/dealsoftheday" class="dropdown-item dropdown-footer">See All Offers</a>
+</div>
+
+@code {
+
+   
+    public void Dispose()
+    {
+
+    }
+}

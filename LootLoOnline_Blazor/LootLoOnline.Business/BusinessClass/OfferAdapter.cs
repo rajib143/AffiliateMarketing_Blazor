@@ -21,7 +21,7 @@ namespace LootLoOnline.Business.BusinessClass
             this.offerAdaptee = new OfferAdaptee(_configuration, MemoryCache);
         }
 
-        public async Task<List<DealsOfTheDayModel>> GetDealsOfTheDay()
+        public async Task<List<DealsOfTheDayModel>> GetDealsOfTheDay(string filterByName = "", string filterByValue = "")
         {
             try
             {

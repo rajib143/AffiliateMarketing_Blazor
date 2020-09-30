@@ -134,3 +134,5 @@ D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Deb
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\ContentHeader.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\Razor\Pages\CatagoryOffers.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\Razor\Shared\ContentHeader.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\HotDealsNotification.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\Razor\Shared\HotDealsNotification.razor.g.cs

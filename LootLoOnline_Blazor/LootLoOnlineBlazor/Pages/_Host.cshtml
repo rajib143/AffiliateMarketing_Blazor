@@ -4,6 +4,7 @@
 @{
     Layout = null;
 }
+@inject LootLoOnline.Business.Services.AppStateService appState
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="verify-admitad" content="dfe61b8b27" />
 
-    <title>Loot Lo Online</title>
+    <title>@appState.pageTitle LootLo Online</title>
     <base href="~/" />
     <link rel="shortcut icon" href="../wwwroot/Images/logo.png">
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />

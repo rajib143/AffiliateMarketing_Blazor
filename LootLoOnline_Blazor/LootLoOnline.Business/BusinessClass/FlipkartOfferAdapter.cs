@@ -22,11 +22,11 @@ namespace LootLoOnline.Business.BusinessClass
             flipkartOfferAdaptee = new FilpkartOfferAdaptee(configuration, memoryCache);
         }
 
-        public async Task<List<DealsOfTheDayModel>> GetDealsOfTheDay()
+        public async Task<List<DealsOfTheDayModel>> GetDealsOfTheDay(string filterByName = "", string filterByValue = "")
         {
             try
             {
-                return await flipkartOfferAdaptee.GetDealsOfTheDay();
+                return await flipkartOfferAdaptee.GetDealsOfTheDay( filterByName, filterByValue);
             }
             catch (Exception ex)
             {

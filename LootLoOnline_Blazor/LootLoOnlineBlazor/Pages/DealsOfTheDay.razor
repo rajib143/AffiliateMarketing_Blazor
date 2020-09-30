@@ -1,39 +1,16 @@
 ﻿@page "/dealsoftheday"
 @inject FlipkartOfferAdapter OfferAdapter
+@inject NavigationManager NavManager
+@inject AppStateService appState
 @implements IDisposable
 
 <ContentHeader ContentList="lstContent"></ContentHeader>
 
 <div class="container-fluid">
-    
+
     <div class="row">
         <!-- /.col-md-6 -->
-        @if (dealsOfTheDayList == null || dealsOfTheDayList.Count == 0)
-        {
-            <h1>Loading...</h1>
-        }
-        else
-        {
-            foreach (var offer in dealsOfTheDayList)
-            {
-                <div class="col-md-2">
-                    <div class="card">
-                        <div class="text-center">
-                            <a href="@offer.url" target="_blank"><img class="card-img-top img-fluid img-thumbnail lazy_load" style="max-width: fit-content; max-height: fit-content;" loading="lazy" alt="@(offer.name + offer.title)" src="@offer.imageUrl" data-holder-rendered="true"></a>
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text small">@(offer.name + offer.title)</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <a href="@offer.url" target="_blank" alt="@(offer.name + offer.title)" class="btn btn-sm btn-outline-secondary">Shop Now</a>
-                                </div>
-                                <small class="text-muted">@(offer.endTime.UnixTimeToDateTime())</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            }
-        }
+        <Deals dealsOfTheDayList="@dealsOfTheDayList" />
         <!-- /.col-md-6 -->
     </div>
     <!-- /.row -->
@@ -44,13 +21,21 @@
     List<string> lstContent = new List<string> { "Deals of the day" };
     protected List<DealsOfTheDayModel> dealsOfTheDayList;
 
+    string filterByName = string.Empty, filterByValue = string.Empty;
+
     protected override async Task OnInitializedAsync()
     {
-        dealsOfTheDayList = await OfferAdapter.GetDealsOfTheDay();
+        NavManager.TryGetQueryString<string>("filterByName", out filterByName);
+        NavManager.TryGetQueryString<string>("filterByValue", out filterByValue);
+
+        dealsOfTheDayList = await OfferAdapter.GetDealsOfTheDay(filterByName, filterByValue);
+
+        appState.SetdealsOfTheDay(dealsOfTheDayList);
+        appState.SetPageTitle("Deals of the day");
     }
- 
+
     public void Dispose()
     {
-
+        appState.OnChange -= StateHasChanged;
     }
 }

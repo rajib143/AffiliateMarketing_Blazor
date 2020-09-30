@@ -23,14 +23,13 @@ namespace LootLoOnline.Business.BusinessClass
             flipkartService = new FlipkartService(configuration, memoryCache);
         }
 
-        public async Task<List<DealsOfTheDayModel>> GetDealsOfTheDay()
+        public async Task<List<DealsOfTheDayModel>> GetDealsOfTheDay(string filterByName = "", string filterByValue = "")
         {
             try
             {
                 List<DealsOfTheDayModel> dealsOfTheDay = new List<DealsOfTheDayModel>();
                 var offers = await flipkartService.GetAllOffers();
-
-                dealsOfTheDay = offers.allOffersList.OrderBy(x => x.endTime).Select(x => new DealsOfTheDayModel()
+                dealsOfTheDay = offers.allOffersList.OrderByDescending(x => x.startTime.UnixTimeToDateTime()).Select(x => new DealsOfTheDayModel()
                 {
                     title = x.title,
                     name = x.name,
@@ -42,6 +41,25 @@ namespace LootLoOnline.Business.BusinessClass
                     imageUrl = x.imageUrls.Count > 0 ? x.imageUrls.FirstOrDefault(x => x.resolutionType.ToUpper() == "LOW").url : string.Empty,
                     availability = x.availability
                 }).ToList();
+
+                if (!string.IsNullOrEmpty(filterByName))
+                {
+                    switch (filterByName)
+                    {
+                        case "HotDeals":
+                            dealsOfTheDay = dealsOfTheDay.Where(x => (x.endTime.UnixTimeToDateTime() - DateTime.UtcNow).Hours < 24).ToList();
+                            break;
+                    }
+                }
+                if (!string.IsNullOrEmpty(filterByValue))
+                {
+                    switch (filterByValue)
+                    {
+                        case "100":
+                            dealsOfTheDay = dealsOfTheDay.Take(100).ToList();
+                            break;
+                    }
+                }
 
                 return dealsOfTheDay;
             }

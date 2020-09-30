@@ -1,4 +1,4 @@
-﻿@inject FlipkartOfferAdapter OfferAdapter
+﻿@inject AppStateService appState
 @implements IDisposable
 
 
@@ -30,20 +30,13 @@ else
 }
 
 @code {
+ 
     [Parameter]
-    public string filterString { get; set; }
+    public IReadOnlyList<DealsOfTheDayModel> dealsOfTheDayList { get; set; }
 
-   
-    private List<DealsOfTheDayModel> dealsOfTheDayList { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-
-       dealsOfTheDayList = await OfferAdapter.GetDealsOfTheDay();
-
-    }
+    
     public void Dispose()
     {
-
+       
     }
 }

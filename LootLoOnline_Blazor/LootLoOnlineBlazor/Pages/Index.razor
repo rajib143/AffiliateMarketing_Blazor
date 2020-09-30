@@ -1,4 +1,6 @@
 ﻿@page "/"
+@inject AppStateService appState
+@inject FlipkartOfferAdapter OfferAdapter
 @implements IDisposable
 
 <ContentHeader ContentList="lstContent"></ContentHeader>
@@ -6,7 +8,7 @@
     <div class="container-fluid">
         <div class="row">
             <!-- /.col-md-6 -->
-            <Deals />
+            <Deals dealsOfTheDayList="@dealsOfTheDayList"/>
             <!-- /.col-md-6 -->
         </div>
         <!-- /.row -->
@@ -16,10 +18,14 @@
 
 @code {
 
-    List<string> lstContent = new List<string> { "Index" };
-    protected override void OnInitialized()
-    {
+    List<string> lstContent = new List<string> { "Welcome to LootLo Online." };
+    private List<DealsOfTheDayModel> dealsOfTheDayList { get; set; }
 
+    protected override async Task OnInitializedAsync()
+    {
+        dealsOfTheDayList = await OfferAdapter.GetDealsOfTheDay();
+        appState.SetdealsOfTheDay(dealsOfTheDayList);
+        appState.SetPageTitle("Welcome to");
     }
 
     public void Dispose()

@@ -9,7 +9,6 @@ D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Rel
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Counter.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Error.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Index.razor.g.cs
-D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Offers.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Search.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\RazorDeclaration\Shared\HeaderNavBar.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\RazorDeclaration\Shared\MainLayout.razor.g.cs
@@ -25,7 +24,6 @@ D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Rel
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\Razor\Pages\Counter.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\Razor\Pages\Error.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\Razor\Pages\Index.razor.g.cs
-D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\Razor\Pages\Offers.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\Razor\Pages\Search.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\Razor\Shared\HeaderNavBar.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\Razor\Shared\MainLayout.razor.g.cs
@@ -70,3 +68,11 @@ D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Rel
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\Razor\Pages\DealsOfTheDay.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\OfferProducts.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\Razor\Pages\OfferProducts.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\CatagoryOffers.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Deals.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\RazorDeclaration\Shared\ContentHeader.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\RazorDeclaration\Shared\HotDealsNotification.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\Razor\Pages\CatagoryOffers.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\Razor\Pages\Deals.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\Razor\Shared\ContentHeader.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\Razor\Shared\HotDealsNotification.razor.g.cs

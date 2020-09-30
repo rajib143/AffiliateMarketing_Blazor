@@ -1,7 +1,9 @@
-﻿<!-- Main Sidebar Container -->
+﻿@inject AppStateService appState
+@implements IDisposable
+<!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/dealsoftheday" class="brand-link">
+    <a href="/" class="brand-link">
         <img src="../Images/logo.png" alt="Loot Lo Online Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light"> Online</span>
     </a>
@@ -11,10 +13,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User @macAddress">
+                <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User @appState.macAddress">
             </div>
             <div class="info">
-                <a href="#" class="d-block">@macAddress</a>
+                <a href="#" class="d-block">@appState.macAddress</a>
             </div>
         </div>
 
@@ -50,12 +52,12 @@
                                 <p>Deals of the day</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        @*<li class="nav-item">
                             <a href="/caragoryoffers" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Top 100 offers </p>
                             </a>
-                        </li>
+                        </li>*@
                        
                     </ul>
                 </li>
@@ -620,8 +622,13 @@
 
     protected override async Task OnInitializedAsync()
     {
-        IpAddress = Utility.GetIpAddress();
-        macAddress = Utility.GetMacAddress();
+        //IpAddress = Utility.GetIpAddress();
+        //macAddress = Utility.GetMacAddress();
+
+    }
+
+    public void Dispose()
+    {
 
     }
 }
