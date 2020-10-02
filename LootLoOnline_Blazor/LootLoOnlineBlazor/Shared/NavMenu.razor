@@ -1,5 +1,5 @@
 ﻿@inject AppStateService appState
-@inject IHttpContextAccessor httpcontext
+@inject IHttpContextAccessor httpContextAccessor
 @implements IDisposable
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -21,12 +21,12 @@
             </div>
         </div>
 
-        
+
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column text-sm nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
-         with font-awesome or any other icon font library -->
+                with font-awesome or any other icon font library -->
                 <li class="nav-item menu-open">
                     <a href="/" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -37,22 +37,20 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/dealsoftheday" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Deals of the Day </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/alloffers" class="nav-link">
+                            <a href="/alloffers" class="nav-link" >
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>All Offers</p>
                             </a>
                         </li>
-
-
+                        <li class="nav-item">
+                            <a href="/dealsoftheday" class="nav-link" >
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Deals of the Day </p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
-            
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -61,27 +59,38 @@
 </aside>
 
 
-@code {
-    private bool collapseNavMenu = true;
-    private string IpAddress { get; set; }
-    private string macAddress { get; set; }
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-    private void ToggleNavMenu()
+@code {
+
+
+    private bool collapseNavMenu = true;
+    private string IpAddress;
+    private string macAddress { get; set; }
+    private string NavMenuCssClass => collapseNavMenu ? "nav-link " : "nav-link active";
+
+    private void ActiveNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
     }
 
     protected override async Task OnInitializedAsync()
     {
-        appState.IpAddress = httpcontext.HttpContext.Connection.RemoteIpAddress.ToString();
+        //if (httpContextAccessor.HttpContext.Connection != null)
+        //{
+        //    IpAddress = httpContextAccessor.HttpContext.Connection.RemoteIpAddress != null ? httpContextAccessor.HttpContext.Connection.RemoteIpAddress.ToString() : string.Empty;
+        //    appState.SetIP(IpAddress);
+        //}
 
         //macAddress = Utility.GetMacAddress();
-
+        //  IpAddress = httpContextAccessor.HttpContext.Connection?.RemoteIpAddress.ToString();
+    }
+    protected override async Task OnParametersSetAsync()
+    {
+        // IpAddress = httpcontext.HttpContext.Connection.RemoteIpAddress != null ? httpcontext.HttpContext.Connection.RemoteIpAddress.ToString() : string.Empty;
     }
 
     public void Dispose()
     {
-
+        // appState.OnChange -= StateHasChanged;
     }
 }

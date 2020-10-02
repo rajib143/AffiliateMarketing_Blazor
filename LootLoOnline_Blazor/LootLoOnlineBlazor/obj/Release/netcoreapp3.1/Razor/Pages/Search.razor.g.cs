@@ -101,6 +101,13 @@ using LootLoOnlineBlazor.Pages;
 #line hidden
 #nullable disable
 #nullable restore
+#line 16 "D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\_Imports.razor"
+using Microsoft.AspNetCore.Http;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\Pages\Search.razor"
 using Blazored.Typeahead;
 

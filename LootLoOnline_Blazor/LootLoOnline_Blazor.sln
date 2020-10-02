@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LootLoOnlineBlazor", "LootL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LootLoOnline.Business", "LootLoOnline.Business\LootLoOnline.Business.csproj", "{8852F1CA-A34A-4F46-AB49-7A76644F5B90}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LootLoOnline.NUnitTest", "LootLoOnline.NUnitTest\LootLoOnline.NUnitTest.csproj", "{B9D17355-601D-4497-9CD6-9A0A5812537B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8852F1CA-A34A-4F46-AB49-7A76644F5B90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8852F1CA-A34A-4F46-AB49-7A76644F5B90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8852F1CA-A34A-4F46-AB49-7A76644F5B90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9D17355-601D-4497-9CD6-9A0A5812537B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9D17355-601D-4497-9CD6-9A0A5812537B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9D17355-601D-4497-9CD6-9A0A5812537B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9D17355-601D-4497-9CD6-9A0A5812537B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

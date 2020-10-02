@@ -13,6 +13,7 @@ using LootLoOnline.Business.Services;
 using LootLoOnline.Business.BusinessClass;
 using LootLoOnline.Business.Interface;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace LootLoOnlineBlazor
 {
@@ -30,18 +31,26 @@ namespace LootLoOnlineBlazor
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddServerSideBlazor();
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddServerSideBlazor().AddCircuitOptions(options => { options.DetailedErrors = true; });
+            //services.Configure<ForwardedHeadersOptions>(options =>
+            //{
+            //    options.ForwardedHeaders =
+            //        ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+            //});
+            services.AddHttpContextAccessor();
+            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddMemoryCache();
             services.AddSingleton<FlipkartService>();
             services.AddSingleton<OfferAdapter>();
             services.AddSingleton<FlipkartOfferAdapter>();
             services.AddSingleton<AppStateService>();
+            services.AddSingleton<VisitorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseForwardedHeaders();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -86,8 +86,10 @@ namespace LootLoOnline.Business
             string IpAddress = string.Empty;
             try
             {
-              //  IpAddress = Request.HttpContext.Connection.RemoteIpAddress;
-
+                string hostName = Dns.GetHostName(); // Retrive the Name of HOST  
+                Console.WriteLine(hostName);
+                // Get the IP  
+                IpAddress = Dns.GetHostByName(hostName).AddressList[0].ToString();
                 return IpAddress;
             }
             catch (ArgumentNullException Exc)
