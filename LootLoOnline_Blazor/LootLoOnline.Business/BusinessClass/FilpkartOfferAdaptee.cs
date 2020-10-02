@@ -23,13 +23,60 @@ namespace LootLoOnline.Business.BusinessClass
             flipkartService = new FlipkartService(configuration, memoryCache);
         }
 
+        public async Task<List<DealsOfTheDayModel>> GetAllOffer(string filterByName = "", string filterByValue = "")
+        {
+            try
+            {
+                List<DealsOfTheDayModel> allOffers = new List<DealsOfTheDayModel>();
+                var offers = await flipkartService.GetAllOffers();
+                allOffers = offers.allOffersList.OrderByDescending(x => x.startTime.UnixTimeToDateTime()).Select(x => new DealsOfTheDayModel()
+                {
+                    title = x.title,
+                    name = x.name,
+                    description = x.description,
+                    startTime = x.startTime,
+                    endTime = x.endTime,
+                    url = x.url,
+                    category = x.category,
+                    imageUrl = x.imageUrls.Count > 0 ? x.imageUrls.FirstOrDefault(x => x.resolutionType.ToUpper() == "LOW").url : string.Empty,
+                    availability = x.availability
+                }).ToList();
+
+                if (!string.IsNullOrEmpty(filterByName))
+                {
+                    switch (filterByName)
+                    {
+                        case "HotDeals":
+                            allOffers = allOffers.Where(x => (x.endTime.UnixTimeToDateTime() - DateTime.UtcNow).Hours < 24).ToList();
+                            break;
+                    }
+                }
+                if (!string.IsNullOrEmpty(filterByValue))
+                {
+                    switch (filterByValue)
+                    {
+                        case "100":
+                            allOffers = allOffers.Take(100).ToList();
+                            break;
+                    }
+                }
+
+                return allOffers;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
         public async Task<List<DealsOfTheDayModel>> GetDealsOfTheDay(string filterByName = "", string filterByValue = "")
         {
             try
             {
                 List<DealsOfTheDayModel> dealsOfTheDay = new List<DealsOfTheDayModel>();
-                var offers = await flipkartService.GetAllOffers();
-                dealsOfTheDay = offers.allOffersList.OrderByDescending(x => x.startTime.UnixTimeToDateTime()).Select(x => new DealsOfTheDayModel()
+                var offers = await flipkartService.GetDealsOfTheDayOffers();
+                dealsOfTheDay = offers.dotdList.OrderByDescending(x => x.startTime.UnixTimeToDateTime()).Select(x => new DealsOfTheDayModel()
                 {
                     title = x.title,
                     name = x.name,
@@ -69,7 +116,6 @@ namespace LootLoOnline.Business.BusinessClass
                 throw;
             }
         }
-
         public async Task<List<OfferCatagory>> GetFlipkartOfferCategories()
         {
             try
@@ -93,7 +139,6 @@ namespace LootLoOnline.Business.BusinessClass
                 throw;
             }
         }
-
         public async Task<FlipkartProducts> GetOfferProducts(string resourceName, string getApi)
         {
             try
@@ -106,7 +151,6 @@ namespace LootLoOnline.Business.BusinessClass
                 throw;
             }
         }
-
         public async Task<List<FlipkartProducts>> GetAllOfferProducts()
         {
             try

@@ -14,7 +14,8 @@ namespace LootLoOnline.Business.Services
     public class FlipkartService
     {
         private IConfiguration configuration;
-        private const string CacheKey_flipKartOffers = "flipkartOffers";
+        private const string CacheKey_flipKartAllOffers = "flipkartAllOffers";
+        private const string CacheKey_flipKartDotsOffers = "flipkartDotsOffers";
         private const string CacheKey_flipKartOfferProducts = "flipKartOfferProducts";
         private const string CacheKey_flipKartCatagoriess = "flipkartCatagories";
         private const string CacheKey_flipkartAllOfferProducts = "flipkartAllOfferProducts";
@@ -29,7 +30,7 @@ namespace LootLoOnline.Business.Services
         {
             try
             {
-                var result = await MemoryCache.GetOrCreateAsync(CacheKey_flipKartOffers, async e =>
+                var result = await MemoryCache.GetOrCreateAsync(CacheKey_flipKartAllOffers, async e =>
                 {
                     e.SetOptions(new MemoryCacheEntryOptions
                     {
@@ -38,6 +39,29 @@ namespace LootLoOnline.Business.Services
                     });
 
                     return await ProcessAllOffers();
+                });
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<FlipkartAllOffers> GetDealsOfTheDayOffers()
+        {
+            try
+            {
+                var result = await MemoryCache.GetOrCreateAsync(CacheKey_flipKartDotsOffers, async e =>
+                {
+                    e.SetOptions(new MemoryCacheEntryOptions
+                    {
+                        AbsoluteExpirationRelativeToNow =
+                            TimeSpan.FromSeconds(30)
+                    });
+
+                    return await ProcessDotsOffers();
                 });
 
                 return result;
@@ -115,6 +139,21 @@ namespace LootLoOnline.Business.Services
             }
         }
 
+        public async Task<FlipkartAllOffers> ProcessDotsOffers()
+        {
+            try
+            {
+                Config config = new Config(configuration);
+                string flipkatAllOffers = await Utility.GetApiResponseAsync(config.FkAffiliateId, config.FkAffiliateToken, config.FlipkartdotdApiUrl);
+                FlipkartAllOffers allOffers = JsonConvert.DeserializeObject<FlipkartAllOffers>(flipkatAllOffers);
+
+                return allOffers;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public async Task<FlipkartAllOffers> ProcessAllOffers()
         {
             try

@@ -1,6 +1,7 @@
 ﻿using LootLoOnline.Business.BusinessClass;
 using LootLoOnline.Business.Interface;
 using LootLoOnline.Business.Models;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -17,16 +18,17 @@ namespace LootLoOnline.Business.Services
         //public IMemoryCache MemoryCache { get; }
         //private ITarget flipkartOfferAdapter;
         //public List<FlipkartProducts> flipkartOfferProducts = new List<FlipkartProducts>();
-        //public AppStateService(IConfiguration configuration, IMemoryCache memoryCache)
-        //{
-        //    this._configuration = configuration;
-        //    this.MemoryCache = memoryCache;
-        //    flipkartOfferAdapter = new FlipkartOfferAdapter(configuration, memoryCache);
-        //   // flipkartOfferProducts = flipkartOfferAdapter.GetAllOfferProducts().Result;
-        //}
+      //  private static readonly IActionContextAccessor _accessor;
+        public AppStateService()//IConfiguration configuration, IMemoryCache memoryCache)
+        {
+            //this._configuration = configuration;
+            //this.MemoryCache = memoryCache;
+            //flipkartOfferAdapter = new FlipkartOfferAdapter(configuration, memoryCache);
+            // flipkartOfferProducts = flipkartOfferAdapter.GetAllOfferProducts().Result;
+        }
 
-        public string IpAddress = Utility.GetIpAddress();
-        public string macAddress = Utility.GetMacAddress();
+        public string IpAddress { get; set; } //= Utility.GetIpAddress();
+        public string macAddress { get; set; }// = Utility.GetMacAddress();
         public string pageTitle = "LootLo Online";
 
         public OfferCatagory SelectedCatagory { get; private set; }

@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.HttpOverrides;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -13,6 +14,8 @@ namespace LootLoOnline.Business
 {
     public static class Utility
     {
+        
+
         public static DateTime UnixTimeToDateTime(this long unixtime)
         {
             try
@@ -83,10 +86,8 @@ namespace LootLoOnline.Business
             string IpAddress = string.Empty;
             try
             {
-                string hostName = Dns.GetHostName(); // Retrive the Name of HOST  
-                Console.WriteLine(hostName);
-                // Get the IP  
-                IpAddress = Dns.GetHostByName(hostName).AddressList[0].ToString();
+              //  IpAddress = Request.HttpContext.Connection.RemoteIpAddress;
+
                 return IpAddress;
             }
             catch (ArgumentNullException Exc)

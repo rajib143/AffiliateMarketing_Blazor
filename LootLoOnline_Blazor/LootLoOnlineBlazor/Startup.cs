@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using LootLoOnline.Business.Services;
 using LootLoOnline.Business.BusinessClass;
 using LootLoOnline.Business.Interface;
+using Microsoft.AspNetCore.Http;
 
 namespace LootLoOnlineBlazor
 {
@@ -30,6 +31,7 @@ namespace LootLoOnlineBlazor
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddMemoryCache();
             services.AddSingleton<FlipkartService>();
             services.AddSingleton<OfferAdapter>();

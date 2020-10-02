@@ -1,4 +1,4 @@
-﻿@page "/dealsoftheday"
+﻿@page "/alloffers"
 @inject FlipkartOfferAdapter OfferAdapter
 @inject NavigationManager NavManager
 @inject AppStateService appState
@@ -19,7 +19,7 @@
             </div>
         </div>
         <!-- /.col-md-6 -->
-        <Deals dealsOfTheDayList="@dealsOfTheDayList" />
+        <Deals dealsOfTheDayList="@allOffersList" />
         <!-- /.col-md-6 -->
     </div>
     <!-- /.row -->
@@ -27,8 +27,8 @@
 
 
 @code {
-    List<string> lstContent = new List<string> { "Deals of the day" };
-    protected List<DealsOfTheDayModel> dealsOfTheDayList;
+    List<string> lstContent = new List<string> { "All Offers" };
+    protected List<DealsOfTheDayModel> allOffersList;
     private static List<DealsOfTheDayModel> readonlyDealsOfTheDayList { get; set; }
 
     string filterByName = string.Empty, filterByValue = string.Empty;
@@ -38,10 +38,9 @@
         NavManager.TryGetQueryString<string>("filterByName", out filterByName);
         NavManager.TryGetQueryString<string>("filterByValue", out filterByValue);
 
-        dealsOfTheDayList = await OfferAdapter.GetDealsOfTheDay(filterByName, filterByValue);
-        readonlyDealsOfTheDayList = dealsOfTheDayList;
-
-        appState.SetdealsOfTheDay(dealsOfTheDayList);
+        allOffersList = await OfferAdapter.GetAllOffers(filterByName, filterByValue);
+        readonlyDealsOfTheDayList = allOffersList;
+        appState.SetdealsOfTheDay(allOffersList);
         appState.SetPageTitle("Deals of the day");
     }
 
@@ -49,11 +48,11 @@
     {
         if (!string.IsNullOrEmpty(searchTerm))
         {
-            dealsOfTheDayList = readonlyDealsOfTheDayList.Where(x => x.title.Contains(searchTerm) || x.name.Contains(searchTerm)).ToList();
+            allOffersList = readonlyDealsOfTheDayList.Where(x => x.title.Contains(searchTerm) || x.name.Contains(searchTerm)).ToList();
         }
         else
         {
-            dealsOfTheDayList = readonlyDealsOfTheDayList;
+            allOffersList = readonlyDealsOfTheDayList;
         }
     }
 

@@ -4,39 +4,57 @@
 
 @if (dealsOfTheDayList == null || dealsOfTheDayList.Count == 0)
 {
+    Task.Delay(1000);
     <h1>No Records Found.</h1>
 }
 else
 {
     foreach (var offer in dealsOfTheDayList)
     {
-        <div class="col-md-2">
-            <div class="card">
-                <div class="text-center">
-                    <a href="@offer.url" target="_blank"><img class="card-img-top img-fluid img-thumbnail lazy_load" style="max-width: fit-content; max-height: fit-content;" loading="lazy" alt="@(offer.name + offer.title)" src="@offer.imageUrl" data-holder-rendered="true"></a>
-                </div>
-                <div class="card-body">
-                    <p class="card-text small">@(offer.name + offer.title)</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <a href="@offer.url" target="_blank" alt="@(offer.name + offer.title)" class="btn btn-sm btn-outline-secondary">Shop Now</a>
-                        </div>
-                        <small class="text-muted">@(offer.endTime.UnixTimeToDateTime())</small>
+
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box">
+                <a href="@offer.url" target="_blank"><img class="card-img-top img-fluid img-thumbnail lazy_load" style="max-width: fit-content; max-height: fit-content;" loading="lazy" alt="@(offer.name + offer.title)" src="@offer.imageUrl" data-holder-rendered="true"></a>
+                <div class="info-box-content">
+                    <span class="info-box-text">@(offer.name)</span>
+                    <span class="info-box-number">@offer.title</span>
+                    <span class="info-box-text"><small class="text-muted">Expire on:@(offer.endTime.UnixTimeToDateTime())</small></span>
+                    <div class="btn-group">
+                        <a href="@offer.url" target="_blank" alt="@(offer.name + offer.title)" class="btn btn-sm btn-outline-info">Shop Now</a>
                     </div>
                 </div>
+                <!-- /.info-box-content -->
             </div>
+            <!-- /.info-box -->
         </div>
+        
+        @*<div class="col-md-2">
+                <div class="card">
+                    <div class="text-center">
+                        <a href="@offer.url" target="_blank"><img class="card-img-top img-fluid img-thumbnail lazy_load" style="max-width: fit-content; max-height: fit-content;" loading="lazy" alt="@(offer.name + offer.title)" src="@offer.imageUrl" data-holder-rendered="true"></a>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text small">@(offer.name + offer.title)</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="@offer.url" target="_blank" alt="@(offer.name + offer.title)" class="btn btn-sm btn-outline-secondary">Shop Now</a>
+                            </div>
+                            <small class="text-muted">@(offer.endTime.UnixTimeToDateTime())</small>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
     }
 }
 
 @code {
- 
+
     [Parameter]
     public IReadOnlyList<DealsOfTheDayModel> dealsOfTheDayList { get; set; }
 
-    
+
     public void Dispose()
     {
-       
+
     }
 }

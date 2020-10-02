@@ -62,11 +62,14 @@ namespace LootLoOnline.Business.Models
     #region AllOffersModel
     public class FlipkartAllOffers
     {
+
         public FlipkartAllOffers()
         {
             allOffersList = new List<AllOffer>();
+            dotdList = new List<AllOffer>();
         }
         public List<AllOffer> allOffersList { get; set; }
+        public List<AllOffer> dotdList { get; set; }
     }
 
     public class AllOffer

@@ -33,10 +33,12 @@
 
     List<string> lstContent = new List<string> { "Welcome to LootLo Online." };
     private List<DealsOfTheDayModel> dealsOfTheDayList { get; set; }
+    private static List<DealsOfTheDayModel> readonlyDealsOfTheDayList { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        dealsOfTheDayList = await OfferAdapter.GetDealsOfTheDay();
+        dealsOfTheDayList = await OfferAdapter.GetAllOffers();
+        readonlyDealsOfTheDayList = dealsOfTheDayList;
         appState.SetdealsOfTheDay(dealsOfTheDayList);
         appState.SetPageTitle("Welcome to");
     }
@@ -44,12 +46,13 @@
     {
         if (!string.IsNullOrEmpty(searchTerm))
         {
-            dealsOfTheDayList = dealsOfTheDayList.Where(x => x.title.Contains(searchTerm) || x.name.Contains(searchTerm)).ToList();
+            dealsOfTheDayList = readonlyDealsOfTheDayList.Where(x => x.title.Contains(searchTerm) || x.name.Contains(searchTerm)).ToList();
         }
         else
         {
-            dealsOfTheDayList = await OfferAdapter.GetDealsOfTheDay();
+            dealsOfTheDayList = readonlyDealsOfTheDayList.ToList();
         }
+
     }
     public void Dispose()
     {
