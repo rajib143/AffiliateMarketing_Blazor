@@ -23,3 +23,4 @@ D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\obj\
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\obj\Debug\netcoreapp3.1\LootLoOnline.Business.csproj.CoreCompileInputs.cache
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\obj\Debug\netcoreapp3.1\LootLoOnline.Business.dll
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\obj\Debug\netcoreapp3.1\LootLoOnline.Business.pdb
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\obj\Debug\netcoreapp3.1\LootLoOnline.Business.csprojAssemblyReference.cache

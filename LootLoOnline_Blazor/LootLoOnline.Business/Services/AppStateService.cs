@@ -62,7 +62,9 @@ namespace LootLoOnline.Business.Services
             if (!string.IsNullOrEmpty(title))
             {
                 pageTitle = title;
+                NotifyStateChanged();
             }
+
         }
 
         public async Task SetIfNull(OfferCatagory offerCatagory)

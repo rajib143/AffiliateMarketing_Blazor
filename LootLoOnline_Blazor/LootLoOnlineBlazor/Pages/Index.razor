@@ -18,8 +18,6 @@
                 </div>
                 <!-- /.card -->
             </div>
-
-
             <!-- /.col-md-6 -->
             <Deals dealsOfTheDayList="@dealsOfTheDayList" />
             <!-- /.col-md-6 -->
@@ -41,6 +39,7 @@
         readonlyDealsOfTheDayList = dealsOfTheDayList;
         appState.SetdealsOfTheDay(dealsOfTheDayList);
         appState.SetPageTitle("Welcome to");
+       
     }
     private async Task SearchByTitle(string searchTerm)
     {
