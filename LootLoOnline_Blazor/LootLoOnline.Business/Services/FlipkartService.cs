@@ -35,7 +35,7 @@ namespace LootLoOnline.Business.Services
                     e.SetOptions(new MemoryCacheEntryOptions
                     {
                         AbsoluteExpirationRelativeToNow =
-                            TimeSpan.FromSeconds(30)
+                            TimeSpan.FromSeconds(50)
                     });
 
                     return await ProcessAllOffers();
@@ -58,7 +58,7 @@ namespace LootLoOnline.Business.Services
                     e.SetOptions(new MemoryCacheEntryOptions
                     {
                         AbsoluteExpirationRelativeToNow =
-                            TimeSpan.FromSeconds(30)
+                            TimeSpan.FromSeconds(50)
                     });
 
                     return await ProcessDotsOffers();
@@ -80,7 +80,7 @@ namespace LootLoOnline.Business.Services
                     e.SetOptions(new MemoryCacheEntryOptions
                     {
                         AbsoluteExpirationRelativeToNow =
-                            TimeSpan.FromSeconds(30)
+                            TimeSpan.FromSeconds(50)
                     });
 
                     return await GetFlipkartProductCategories();
@@ -102,7 +102,7 @@ namespace LootLoOnline.Business.Services
                     e.SetOptions(new MemoryCacheEntryOptions
                     {
                         AbsoluteExpirationRelativeToNow =
-                            TimeSpan.FromSeconds(30)
+                            TimeSpan.FromSeconds(50)
                     });
                    
                     return await ProcessOfferProducts(resourceName,getApi);
@@ -125,7 +125,7 @@ namespace LootLoOnline.Business.Services
                     e.SetOptions(new MemoryCacheEntryOptions
                     {
                         AbsoluteExpirationRelativeToNow =
-                            TimeSpan.FromSeconds(30)
+                            TimeSpan.FromSeconds(50)
                     });
 
                     return await GetAllFlipkartOfferProducts();

@@ -14,6 +14,8 @@ using LootLoOnline.Business.BusinessClass;
 using LootLoOnline.Business.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.AspNetCore.ResponseCompression;
+using System.IO.Compression;
 
 namespace LootLoOnlineBlazor
 {
@@ -32,6 +34,20 @@ namespace LootLoOnlineBlazor
         {
             services.AddRazorPages();
             services.AddServerSideBlazor().AddCircuitOptions(options => { options.DetailedErrors = true; });
+            // services.AddResponseCompression();
+            services.AddResponseCompression(options =>
+            {
+                options.Providers.Add<BrotliCompressionProvider>();
+                options.Providers.Add<GzipCompressionProvider>();
+
+                options.MimeTypes =
+                   ResponseCompressionDefaults.MimeTypes.Concat(
+                       new[] { "image/svg+xml" });
+            });
+            services.Configure<GzipCompressionProviderOptions>(options =>
+            {
+                options.Level = CompressionLevel.Fastest;
+            });
             //services.Configure<ForwardedHeadersOptions>(options =>
             //{
             //    options.ForwardedHeaders =
@@ -50,7 +66,8 @@ namespace LootLoOnlineBlazor
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseForwardedHeaders();
+            //app.UseForwardedHeaders();
+            app.UseResponseCompression();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

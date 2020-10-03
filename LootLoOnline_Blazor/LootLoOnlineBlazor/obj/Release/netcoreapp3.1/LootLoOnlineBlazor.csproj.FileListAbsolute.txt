@@ -91,3 +91,4 @@ D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Rel
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\LootLoOnlineBlazor.dll
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\LootLoOnlineBlazor.pdb
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\LootLoOnlineBlazor.genruntimeconfig.cache
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Release\netcoreapp3.1\Properties\ServiceDependencies\lootloonline1 - Web Deploy\profile.arm.json
