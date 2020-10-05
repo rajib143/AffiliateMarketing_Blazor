@@ -14,15 +14,16 @@ namespace LootLoOnline.Business.Models
 
     public class Visitor : EntityBase
     {
-
+        public Visitor()
+        {
+            CreatedDate =DateTime.UtcNow;
+            Count = 1;
+        }
         public string IPAddress { get; set; }
-
         public string MacAddress { get; set; }
-
+        public int Count { get; set; }
+        public DateTime CreatedDate { get; set; }
         public DealsOfTheDayModel dealsOfTheDayModel { get; set; }
-
-
-
     }
     public class MongoDBModel
     {

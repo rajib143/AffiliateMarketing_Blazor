@@ -1,11 +1,24 @@
 ﻿@page "/"
 @inject AppStateService appState
 @inject FlipkartOfferAdapter OfferAdapter
+@inject VisitorService visitorService
 @implements IDisposable
+@inject IJSRuntime JSRuntime
 
 <ContentHeader ContentList="lstContent"></ContentHeader>
 <div class="content">
     <div class="container-fluid">
+        @if (latestOrders != null)
+        {
+            <div class="row">
+                <div class="col-md-8">
+                    <LatestOrders latestOrders="latestOrders" />
+                </div>
+                <div class="col-md-4">
+                    <RecentlyAddedProducts recentlyAddedDeals="recentlyAddedDeals" />
+                </div>
+            </div>
+        }
         <div class="row">
             <div class="col-12">
                 <!-- Default box -->
@@ -19,7 +32,7 @@
                 <!-- /.card -->
             </div>
             <!-- /.col-md-6 -->
-            <Deals dealsOfTheDayList="@dealsOfTheDayList" />
+            <Deals dealsOfTheDayList="dealsOfTheDayList" />
             <!-- /.col-md-6 -->
         </div>
         <!-- /.row -->
@@ -32,6 +45,8 @@
     List<string> lstContent = new List<string> { "Welcome to LootLo Online." };
     private List<DealsOfTheDayModel> dealsOfTheDayList { get; set; }
     private static List<DealsOfTheDayModel> readonlyDealsOfTheDayList { get; set; }
+    private static List<Visitor> latestOrders { get; set; }
+    private List<DealsOfTheDayModel> recentlyAddedDeals { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -39,7 +54,9 @@
         readonlyDealsOfTheDayList = dealsOfTheDayList;
         appState.SetdealsOfTheDay(dealsOfTheDayList);
         appState.SetPageTitle("Welcome to");
-       
+
+        latestOrders = visitorService.visitorRepository.GetAll().ToList();
+        recentlyAddedDeals = readonlyDealsOfTheDayList.OrderByDescending(x => x.endTime.UnixTimeToDateTime()).Take(5).ToList();
     }
     private async Task SearchByTitle(string searchTerm)
     {
@@ -52,6 +69,15 @@
             dealsOfTheDayList = readonlyDealsOfTheDayList.ToList();
         }
 
+    }
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            return JSRuntime.InvokeVoidAsync("alertFunctions.init").AsTask();
+        }
+
+        return Task.CompletedTask;
     }
     public void Dispose()
     {

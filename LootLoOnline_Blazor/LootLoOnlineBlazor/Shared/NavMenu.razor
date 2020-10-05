@@ -14,10 +14,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="dist/img/user2-160x160.jpg" data-original="dist/img/user2-160x160.jpg"  class="img-circle elevation-2 lazy_load" alt="User @appState.IpAddress" lazyload="on">
+                <img src="dist/img/user2-160x160.jpg" data-original="dist/img/user2-160x160.jpg"  class="img-circle elevation-2 lazy_load" alt="User @httpContextAccessor.HttpContext.Connection?.RemoteIpAddress.ToString()" lazyload="on">
             </div>
             <div class="info">
-                <a href="#" class="d-block">@appState.IpAddress</a>
+                <a href="#" class="d-block">@httpContextAccessor.HttpContext.Connection?.RemoteIpAddress.ToString()</a>
             </div>
         </div>
 

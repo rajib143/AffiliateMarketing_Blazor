@@ -18,7 +18,9 @@
     <link rel="shortcut icon" href="~/Images/logo.png">
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
     @*    <link href="css/site.css" rel="stylesheet" />*@
-
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="~/dist/css/GoogleFont.css" rel="stylesheet" />
     @*<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">*@
@@ -33,8 +35,7 @@
     <link href="_content/Blazored.Typeahead/blazored-typeahead.css" rel="stylesheet" />
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    @*<script async src="https://www.googletagmanager.com/gtag/js?id=G-RF6X1Z4SSS"></script>*@
-    <script src="~/dist/js/GoogleAnalytics.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RF6X1Z4SSS"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -42,6 +43,17 @@
 
         gtag('config', 'G-RF6X1Z4SSS');
     </script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NK3RMCW');</script>
+    <!-- End Google Tag Manager -->
 </head>
 <body class="sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed  text-sm">
     <div class="wrapper">
@@ -70,12 +82,17 @@
     <!-- AdminLTE -->
     <script src="~/dist/js/adminlte.js"></script>
 
+    <!-- DataTables -->
+    <script src="~/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
     <!-- OPTIONAL SCRIPTS -->
     @*<script src="~/plugins/chart.js/Chart.min.js"></script>*@
     <!-- AdminLTE for demo purposes -->
     <script src="~/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="~/dist/js/pages/dashboard3.js"></script>
+    @*<script src="~/dist/js/pages/dashboard3.js"></script>*@
     <script src="~/dist/js/lazyload.js"></script>
 
     <script>
@@ -93,6 +110,42 @@
             $links.removeClass('active');
             $(this).addClass('active');
         });
+
+        $(document).ready(function () {
+            // this is called when the DOM is loaded, but not when the blazor component is loaded.
+            window.alertFunctions.init();
+        });
+
+        window.alertFunctions = {
+            init: function () {
+                // this always need to be called specific from the blazor component, because $(document).ready() is not recalled
+                // Now we have to call all initializations of every component that normally will have events and actions initialized on $(document).ready()
+                $('#LatestOrdersTable').DataTable({
+                    "pageLength": 5,
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": true,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false,
+                    "responsive": true,
+
+                });
+            },
+            show: function (element) {
+                
+            },
+            close: function (element) {
+                
+            }
+        };
+      
     </script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NK3RMCW"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
 </body>
 </html>

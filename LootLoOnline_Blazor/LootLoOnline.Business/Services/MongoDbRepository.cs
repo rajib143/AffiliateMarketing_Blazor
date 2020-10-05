@@ -41,15 +41,15 @@ namespace LootLoOnline.Business.Services
             }
         }
 
-        //public bool Update(TEntity entity)
-        //{
-        //    if (entity.Id == null)
-        //        return Insert(entity);
-
-        //    return collection
-        //    .UpdateOne(entity)
-        //    .DocumentsAffected > 0;
-        //}
+        public bool Update(TEntity entity)
+        {
+            if (entity.Id == null)
+                return Insert(entity);
+            else
+                collection.ReplaceOne<TEntity>(x => x.Id == entity.Id, entity, new ReplaceOptions() { IsUpsert = true });
+            
+            return true;
+        }
 
         public bool Delete(TEntity entity)
         {
@@ -67,14 +67,15 @@ namespace LootLoOnline.Business.Services
             return true;
         }
 
-        //public IList<TEntity>
-        //SearchFor(Expression<Func<TEntity, bool>> predicate)
-        //{
-        //    return collection
-        //    .AsQueryable<TEntity>()
-        //    .Where(predicate.Compile())
-        //    .ToList();
-        //}
+        public IList<TEntity> AggregateFor(AggregateOptions predicate)
+        {
+            return collection.Aggregate<TEntity>(predicate).ToList();
+        }
+
+        public IList<TEntity> SearchFor(Expression<Func<TEntity, bool>> predicate)
+        {
+            return collection.AsQueryable<TEntity>().Where(predicate).ToList();
+        }
 
         public IList<TEntity> GetAll()
         {
