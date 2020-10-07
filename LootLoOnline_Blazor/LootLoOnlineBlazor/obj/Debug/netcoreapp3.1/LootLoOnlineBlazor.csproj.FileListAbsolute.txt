@@ -62,6 +62,7 @@ D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Deb
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Debug\netcoreapp3.1\appsettings.json
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\lootloonline - Web Deploy\profile.arm.json
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\lootloonline1 - Web Deploy\profile.arm.json
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Debug\netcoreapp3.1\LootLoOnlineBlazor.StaticWebAssets.xml
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Debug\netcoreapp3.1\LootLoOnlineBlazor.exe
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Debug\netcoreapp3.1\LootLoOnlineBlazor.deps.json
@@ -104,7 +105,10 @@ D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Deb
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\DealsOfTheDay.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Error.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Index.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\LatestOrders.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\OfferDetails.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\OfferProducts.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\RecentlyAddedProducts.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Search.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\TopViewerProducts.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\ContentHeader.razor.g.cs
@@ -128,7 +132,10 @@ D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Deb
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\Razor\Pages\DealsOfTheDay.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\Razor\Pages\Error.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\Razor\Pages\Index.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\Razor\Pages\LatestOrders.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\Razor\Pages\OfferDetails.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\Razor\Pages\OfferProducts.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\Razor\Pages\RecentlyAddedProducts.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\Razor\Pages\Search.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\Razor\Pages\TopViewerProducts.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\Razor\Shared\ContentHeader.razor.g.cs
@@ -151,8 +158,5 @@ D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Deb
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\LootLoOnlineBlazor.dll
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\LootLoOnlineBlazor.pdb
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\LootLoOnlineBlazor.genruntimeconfig.cache
-D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\lootloonline1 - Web Deploy\profile.arm.json
-D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\LatestOrders.razor.g.cs
-D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\Razor\Pages\LatestOrders.razor.g.cs
-D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\RecentlyAddedProducts.razor.g.cs
-D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\Razor\Pages\RecentlyAddedProducts.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\MongoOfferProducts.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\Razor\Pages\MongoOfferProducts.razor.g.cs

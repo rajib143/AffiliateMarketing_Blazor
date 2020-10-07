@@ -127,7 +127,7 @@ namespace LootLoOnline.Business.Models
 
     public class shippingCharge
     {
-        public string amount { get; set; }
+        public decimal amount { get; set; }
         public string currency { get; set; }
     }
     public class categorySpecificInfoV1
@@ -153,7 +153,7 @@ namespace LootLoOnline.Business.Models
         public string productBrand { get; set; }
         public bool inStock { get; set; }
         public bool codAvailable { get; set; }
-        public double discountPercentage { get; set; }
+        public decimal discountPercentage { get; set; }
         public object offers { get; set; }
         public string categoryPath { get; set; }
         public object attributes { get; set; }
@@ -162,7 +162,7 @@ namespace LootLoOnline.Business.Models
 
     public class Price
     {
-        public double amount { get; set; }
+        public decimal amount { get; set; }
         public string currency { get; set; }
     }
 

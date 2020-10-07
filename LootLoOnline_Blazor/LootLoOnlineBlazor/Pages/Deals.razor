@@ -15,7 +15,7 @@ else
     {
         <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box">
-                <a href="@offer.url" target="_blank" @onclick="async () => SaveViewCount(offer)">
+                <a href="/{@offer.name.Trim()}" target="_blank" @onclick="async () => SaveViewCount(offer)">
                     <img class="card-img-top img-fluid img-thumbnail lazy_load" loading="lazy" alt="@(offer.name + offer.title)" src="@offer.imageUrl" data-original="@offer.imageUrl" width="200" height="200" lazyload="on"  />
                 </a>
                 <div class="info-box-content">

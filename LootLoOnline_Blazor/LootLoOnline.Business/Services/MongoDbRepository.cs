@@ -41,29 +41,47 @@ namespace LootLoOnline.Business.Services
             }
         }
 
+        public bool BulkInsert(IEnumerable<WriteModel<TEntity>> writeModels)
+        {
+            try
+            {
+                collection.BulkWrite(writeModels, new BulkWriteOptions
+                {
+                    IsOrdered = false
+                });
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public bool Update(TEntity entity)
         {
             if (entity.Id == null)
                 return Insert(entity);
             else
                 collection.ReplaceOne<TEntity>(x => x.Id == entity.Id, entity, new ReplaceOptions() { IsUpsert = true });
-            
+
             return true;
         }
 
         public bool Delete(TEntity entity)
         {
-            collection.DeleteOne(entity => entity.Id == entity.Id);
+            //var deleteFilter = Builders<BsonDocument>.Filter.Eq("_id", entity.Id);
+            collection.DeleteOne(Builders<TEntity>.Filter.Eq("_id", entity.Id));
             return true;
         }
 
         public bool DeleteAll()
         {
-            var documnets = GetAll();
-            foreach(var item in documnets)
-            {
-                Delete(item);
-            }
+            //var documnets = GetAll();
+            //foreach (var item in documnets)
+            //{
+            collection.DeleteMany(x => true);
+            //}
             return true;
         }
 
@@ -74,12 +92,24 @@ namespace LootLoOnline.Business.Services
 
         public IList<TEntity> SearchFor(Expression<Func<TEntity, bool>> predicate)
         {
-            return collection.AsQueryable<TEntity>().Where(predicate).ToList();
+            var documents = collection.Find<TEntity>(predicate).ToList();
+            return documents;
+            // return collection.AsQueryable<TEntity>().Where(predicate).explain("executionStats").ToList();
         }
 
         public IList<TEntity> GetAll()
         {
-            return collection.Find<TEntity>(e => true).ToList();
+            try
+            {
+                // return collection.Find<TEntity>(e => true).ToList();
+                var documents = collection.Find<TEntity>(x=>true).ToList();
+                return documents;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
 

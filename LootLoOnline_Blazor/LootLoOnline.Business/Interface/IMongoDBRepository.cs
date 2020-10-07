@@ -1,4 +1,5 @@
 ﻿using LootLoOnline.Business.Models;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -10,6 +11,7 @@ namespace LootLoOnline.Business.Interface
     public interface IMongoDBRepository<TEntity> where TEntity : EntityBase
     {
         bool Insert(TEntity entity);
+        bool BulkInsert(IEnumerable<WriteModel<TEntity>> writeModels);
         bool Update(TEntity entity);
         bool Delete(TEntity entity);
         bool DeleteAll();

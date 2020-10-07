@@ -19,10 +19,10 @@ namespace LootLoOnline.Business.Services
         //public IMemoryCache MemoryCache { get; }
         //private ITarget flipkartOfferAdapter;
         //public List<FlipkartProducts> flipkartOfferProducts = new List<FlipkartProducts>();
-      //  private static IHttpContextAccessor httpContextAccessor;
+        //  private static IHttpContextAccessor httpContextAccessor;
         public AppStateService(IHttpContextAccessor _accessor)//IConfiguration configuration, IMemoryCache memoryCache)
         {
-           // httpContextAccessor = _accessor;
+            // httpContextAccessor = _accessor;
             //this._configuration = configuration;
             //this.MemoryCache = memoryCache;
             //flipkartOfferAdapter = new FlipkartOfferAdapter(configuration, memoryCache);
@@ -32,7 +32,8 @@ namespace LootLoOnline.Business.Services
         public string IpAddress = Utility.GetIpAddress();
         public string macAddress { get; set; }// = Utility.GetMacAddress();
         public string pageTitle = "LootLo Online";
-
+        public string metaTitle = "";
+        public string metaDscription = "";
         public OfferCatagory SelectedCatagory { get; private set; }
         public List<DealsOfTheDayModel> alertHotDealList = new List<DealsOfTheDayModel>();
         public event Action OnChange;
@@ -54,7 +55,7 @@ namespace LootLoOnline.Business.Services
 
         public async Task SetdealsOfTheDay(List<DealsOfTheDayModel> dealsOfTheDayModels)
         {
-            alertHotDealList = dealsOfTheDayModels.Where(x => (x.endTime.UnixTimeToDateTime() - DateTime.UtcNow).Hours < 24).OrderByDescending(x=>x.endTime.UnixTimeToDateTime()).Take(5).ToList();
+            alertHotDealList = dealsOfTheDayModels.Where(x => (x.endTime.UnixTimeToDateTime() - DateTime.UtcNow).Hours < 24).OrderByDescending(x => x.endTime.UnixTimeToDateTime()).Take(5).ToList();
             NotifyStateChanged();
         }
         public async Task SetPageTitle(string title)
@@ -65,6 +66,24 @@ namespace LootLoOnline.Business.Services
                 NotifyStateChanged();
             }
 
+        }
+
+        public async Task SetMetaTitle(string metat)
+        {
+            if (!string.IsNullOrEmpty(metat))
+            {
+                metat = metat;
+                NotifyStateChanged();
+            }
+
+        }
+        public async Task SetMetaDescription(string desc)
+        {
+            if (!string.IsNullOrEmpty(desc))
+            {
+                metaDscription = desc;
+                NotifyStateChanged();
+            }
         }
 
         public async Task SetIfNull(OfferCatagory offerCatagory)

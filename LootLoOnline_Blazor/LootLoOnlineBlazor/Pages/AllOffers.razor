@@ -41,7 +41,9 @@
         allOffersList = await OfferAdapter.GetAllOffers(filterByName, filterByValue);
         readonlyDealsOfTheDayList = allOffersList;
         appState.SetdealsOfTheDay(allOffersList);
-        appState.SetPageTitle("Deals of the day");
+        appState.SetPageTitle("All Offers");
+        appState.SetMetaTitle("LootLo Online: All Offers");
+        appState.SetMetaDescription("LootLo Online: All Offers");
     }
 
     private async Task SearchByTitle(string searchTerm)

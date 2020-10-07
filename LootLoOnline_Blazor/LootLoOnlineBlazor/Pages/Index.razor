@@ -1,4 +1,5 @@
 ﻿@page "/"
+@page "/{name}"
 @inject AppStateService appState
 @inject FlipkartOfferAdapter OfferAdapter
 @inject VisitorService visitorService
@@ -8,17 +9,26 @@
 <ContentHeader ContentList="lstContent"></ContentHeader>
 <div class="content">
     <div class="container-fluid">
-        @if (latestOrders != null)
-        {
-            <div class="row">
-                <div class="col-md-8">
+
+        <div class="row">
+            <div class="col-md-8">
+                @if (dealsOfTheDayModel != null)
+                {
+                    <OfferDetails dealsOfTheDayModel="dealsOfTheDayModel" />
+                }
+                else if (latestOrders != null)
+                {
                     <LatestOrders latestOrders="latestOrders" />
-                </div>
-                <div class="col-md-4">
-                    <RecentlyAddedProducts recentlyAddedDeals="recentlyAddedDeals" />
-                </div>
+                }
             </div>
-        }
+            <div class="col-md-4">
+                @if (recentlyAddedDeals != null)
+                {
+                    <RecentlyAddedProducts recentlyAddedDeals="recentlyAddedDeals" />
+                }
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-12">
                 <!-- Default box -->
@@ -42,21 +52,44 @@
 
 @code {
 
+        [Parameter]
+        public string name { get; set; }
+    public DealsOfTheDayModel dealsOfTheDayModel { get; set; }
+
     List<string> lstContent = new List<string> { "Welcome to LootLo Online." };
     private List<DealsOfTheDayModel> dealsOfTheDayList { get; set; }
     private static List<DealsOfTheDayModel> readonlyDealsOfTheDayList { get; set; }
     private static List<Visitor> latestOrders { get; set; }
     private List<DealsOfTheDayModel> recentlyAddedDeals { get; set; }
 
+
     protected override async Task OnInitializedAsync()
     {
+
+        name = name ?? "";
         dealsOfTheDayList = await OfferAdapter.GetAllOffers();
         readonlyDealsOfTheDayList = dealsOfTheDayList;
         appState.SetdealsOfTheDay(dealsOfTheDayList);
-        appState.SetPageTitle("Welcome to");
 
-        latestOrders = visitorService.visitorRepository.GetAll().ToList();
+
+        latestOrders = visitorService.visitorRepository.GetAll().OrderByDescending(x => x.CreatedDate).ToList();
         recentlyAddedDeals = readonlyDealsOfTheDayList.OrderByDescending(x => x.endTime.UnixTimeToDateTime()).Take(5).ToList();
+
+        if (!string.IsNullOrEmpty(name))
+        {
+            name = name.Replace('{', ' ').Replace('}', ' ').Trim();
+            dealsOfTheDayModel = dealsOfTheDayList.Where(x =>x.name.Contains(name)).FirstOrDefault();
+
+            appState.SetPageTitle(name);
+            appState.SetMetaTitle(name);
+            appState.SetMetaDescription("LootLo Online - "+name +"-"+dealsOfTheDayModel.title );
+        }
+        else
+        {
+            appState.SetPageTitle("Welcome to");
+            appState.SetMetaTitle("Welcome  to LootLo Online.");
+            appState.SetMetaDescription("LootLo Online is a deals Site");
+        }
     }
     private async Task SearchByTitle(string searchTerm)
     {

@@ -1,0 +1,57 @@
+﻿@inject AppStateService appState
+@inject IHttpContextAccessor httpContextAccessor
+@inject VisitorService visitorService
+@implements IDisposable
+
+
+@if (lootLoOfferProducts == null)
+{
+    <h1>Loading...</h1>
+}
+else
+{
+    foreach (var offer in lootLoOfferProducts)
+    {
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box">
+                <a href="/caragoryoffers/{@(offer.OfferProduct.title.Trim())}" target="_blank" @onclick="async () => SaveViewCount(offer)">
+                    <img class="card-img-top img-fluid img-thumbnail lazy_load" loading="lazy" alt="@(offer.OfferProduct.title)" src="@offer.OfferProduct.imageUrls_200" data-original="@offer.OfferProduct.imageUrls_200" width="200" height="200" lazyload="on" />
+                </a>
+                <div class="info-box-content">
+                    <span class="info-box-text">@(offer.OfferProduct.title)</span>
+                    <span class="info-box-number">@offer.OfferProduct.keySpecs</span> <span class="info-box-text"><small class="text-muted">Expire on:@(offer.OfferProduct.validTill)</small></span>
+                    <div class="btn-group">
+                        <a href="@offer.OfferProduct.productUrl" target="_blank" alt="@(offer.OfferProduct.title)" class="btn btn-sm btn-outline-info" @onclick="async () => SaveViewCount(offer)">Shop Now</a>
+                    </div>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+    }
+}
+
+@code {
+    [Parameter]
+    public IReadOnlyList<LootLoOfferProduct> lootLoOfferProducts { get; set; }
+
+    private async Task SaveViewCount(LootLoOfferProduct model)
+    {
+        //if (model != null)
+        //{
+        //    string IpAddress = httpContextAccessor.HttpContext.Connection?.RemoteIpAddress.ToString();
+        //    Visitor visitor = new Visitor();
+        //    visitor.Id = Guid.NewGuid();
+        //    visitor.IPAddress = IpAddress;
+        //    visitor.dealsOfTheDayModel = model;
+
+        //    visitorService.InsertAvisitor(visitor);
+        //}
+
+    }
+
+    public void Dispose()
+    {
+        // appStateService.OnChange -= StateHasChanged;
+    }
+}

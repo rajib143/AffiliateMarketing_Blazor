@@ -61,6 +61,8 @@ namespace LootLoOnlineBlazor
             services.AddSingleton<FlipkartOfferAdapter>();
             services.AddSingleton<AppStateService>();
             services.AddSingleton<VisitorService>();
+            services.AddSingleton<FlipKartOfferProductRepo>();
+            services.AddSingleton<FlipKartDealsOftheDayRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -87,6 +89,7 @@ namespace LootLoOnlineBlazor
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapBlazorHub();
+                endpoints.MapFallbackToPage("/{name?}", "/_Host");
                 endpoints.MapFallbackToPage("/_Host");
             });
         }

@@ -38,6 +38,8 @@ namespace LootLoOnline.Business.Services
                 }
                 else
                 {
+                    Random random = new Random();
+                    visitor.Count = random.Next(10,1000);
                     isSuccess = visitorRepository.Insert(visitor);
                 }
                 return isSuccess;

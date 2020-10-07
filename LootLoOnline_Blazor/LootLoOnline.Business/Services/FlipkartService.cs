@@ -115,7 +115,6 @@ namespace LootLoOnline.Business.Services
                 throw ex;
             }
         }
-
         public async Task<List<FlipkartProducts>> GetAllOfferProducts()
         {
             try
@@ -138,6 +137,7 @@ namespace LootLoOnline.Business.Services
                 throw ex;
             }
         }
+
 
         public async Task<FlipkartAllOffers> ProcessDotsOffers()
         {
@@ -258,5 +258,8 @@ namespace LootLoOnline.Business.Services
                 throw ex;
             }
         }
+    
+    
+
     }
 }

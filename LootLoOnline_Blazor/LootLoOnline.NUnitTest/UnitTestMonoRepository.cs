@@ -11,6 +11,7 @@ namespace LootLoOnline.NUnitTest
     public class Tests
     {
         private  IMongoDBRepository<Visitor> _visitor;
+        private IMongoDBRepository<LootLoOfferProduct> _LootLoOfferProduct;
 
         [SetUp]
         public void Setup()
@@ -22,8 +23,10 @@ namespace LootLoOnline.NUnitTest
         public void GetAll()
         {
             _visitor = new MongoDbRepository<Visitor>();
+            _LootLoOfferProduct = new MongoDbRepository<LootLoOfferProduct>();
            // var result = 
-            var result = _visitor.GetAll();
+            //var result = _visitor.GetAll();
+            var result1 = _LootLoOfferProduct.SearchFor(x=> x.OfferProduct.CategoryName=="software");
             Assert.Pass();
         }
         [Test]

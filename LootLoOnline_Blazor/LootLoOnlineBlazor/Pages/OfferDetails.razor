@@ -1,0 +1,97 @@
+﻿@inject IHttpContextAccessor httpContextAccessor
+@inject VisitorService visitorService
+@implements IDisposable
+@{
+    sharedLink = "https://www.lootloonline.com/" + dealsOfTheDayModel.name.Trim();
+}
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <h3 class="d-inline-block d-sm-none">@dealsOfTheDayModel.title</h3>
+                <div class="col-12">
+                    <img src="@dealsOfTheDayModel.imageUrl" class="product-image" alt="@(dealsOfTheDayModel.title +" - "+ dealsOfTheDayModel.name )">
+                </div>
+                @*<div class="col-12 product-image-thumbs">
+                        <div class="product-image-thumb active"><img src="../../dist/img/prod-1.jpg" alt="Product Image"></div>
+                        <div class="product-image-thumb"><img src="../../dist/img/prod-2.jpg" alt="Product Image"></div>
+                        <div class="product-image-thumb"><img src="../../dist/img/prod-3.jpg" alt="Product Image"></div>
+                        <div class="product-image-thumb"><img src="../../dist/img/prod-4.jpg" alt="Product Image"></div>
+                        <div class="product-image-thumb"><img src="../../dist/img/prod-5.jpg" alt="Product Image"></div>
+                    </div>*@
+            </div>
+            <div class="col-12 col-sm-6">
+                <h3 class="my-3">LOWA Men’s Renegade GTX Mid Hiking Boots Review</h3>
+                <p>@(dealsOfTheDayModel.title +" - "+ dealsOfTheDayModel.name )</p>
+
+                <hr>
+                <h4>@dealsOfTheDayModel.availability</h4>
+
+                @*<div class="bg-gray py-2 px-3 mt-4">
+                        <h2 class="mb-0">
+                            $80.00
+                        </h2>
+                        <h4 class="mt-0">
+                            <small>Ex Tax: $80.00 </small>
+                        </h4>
+                    </div>*@
+
+                <div class="mt-4">
+                    <a class="btn btn-primary btn-lg btn-flat" target="_blank" @onclick="async () => SaveViewCount(dealsOfTheDayModel)" href="@dealsOfTheDayModel.url" title="@(dealsOfTheDayModel.title +" - "+ dealsOfTheDayModel.name )">
+                        <i class="fas fa-cart-plus fa-lg mr-2"></i>
+                        SHOP NOW
+                    </a>
+
+                </div>
+
+                <div class="mt-4 product-share">
+                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=@(sharedLink)" onclick="popupwindowAtCenter(this.href,'Share on Facebook',600,600);return false;" class="text-gray">
+                        <i class="fab fa-facebook-square fa-2x"></i>
+                    </a>
+                    <a target="_blank" href="https://twitter.com/intent/tweet?text=@(dealsOfTheDayModel.name)&source=lootloonline.com&url=@(sharedLink)" onclick="popupwindowAtCenter(this.href,'Share on Twitter',600,600);return false;" class="text-gray">
+                        <i class="fab fa-twitter-square fa-2x"></i>
+                    </a>
+                    <a target="_blank" href="whatsapp://send?text=@(dealsOfTheDayModel.title +" - "+ dealsOfTheDayModel.name +". SHOP NOW - "+sharedLink )" data-action="share/whatsapp/share" class="wa_btn wa_btn_s text-gray">
+                        <i class="fab fa-whatsapp-square fa-2x"></i>
+                    </a>
+                    @*
+                        <a href="#" class="text-gray">
+                            <i class="fas fa-envelope-square fa-2x"></i>
+                        </a>
+                        <a href="#" class="text-gray">
+                            <i class="fas fa-rss-square fa-2x"></i>
+                        </a>*@
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+@code {
+
+    [Parameter]
+    public DealsOfTheDayModel dealsOfTheDayModel { get; set; }
+
+    public string sharedLink { get; set; }
+
+    private async Task SaveViewCount(DealsOfTheDayModel model)
+    {
+        if (model != null)
+        {
+            string IpAddress = httpContextAccessor.HttpContext.Connection?.RemoteIpAddress.ToString();
+            Visitor visitor = new Visitor();
+            visitor.Id = Guid.NewGuid();
+            visitor.IPAddress = IpAddress;
+            visitor.dealsOfTheDayModel = model;
+
+            visitorService.InsertAvisitor(visitor);
+        }
+
+    }
+    public void Dispose()
+    {
+
+    }
+}
