@@ -2,6 +2,7 @@
 @inject AppStateService appState
 @inject FlipkartOfferAdapter OfferAdapter
 @inject FlipKartOfferProductRepo flipkartOfferProduct
+@inject OfferProductRepo offerProductRepo
 @implements IDisposable
 
 <ContentHeader ContentList="lstContent"></ContentHeader>
@@ -190,18 +191,18 @@
         <!-- /.col-md-6 -->
     </div>
     @*<div class="container-fluid">
-        <div class="row">
-            <Search OnSelect="OnSelectionChange"></Search>
-            <p>@caragoryOfferAPI</p>
-        </div>
-        @if (!string.IsNullOrWhiteSpace(caragoryOfferAPI))
-        {
             <div class="row">
-                <OfferProducts caragoryOfferAPI="@caragoryOfferAPI" />
+                <Search OnSelect="OnSelectionChange"></Search>
+                <p>@caragoryOfferAPI</p>
             </div>
-        }
-        
-    </div>*@
+            @if (!string.IsNullOrWhiteSpace(caragoryOfferAPI))
+            {
+                <div class="row">
+                    <OfferProducts caragoryOfferAPI="@caragoryOfferAPI" />
+                </div>
+            }
+
+        </div>*@
     <!-- /.container-fluid -->
 </div>
 
@@ -216,8 +217,9 @@
 
     protected override async Task OnInitializedAsync()
     {
-        lootLoOfferProducts = await flipkartOfferProduct.GetSerchOfferProducts(x => x.OfferProduct.SiteName == "Flipkart");
-        readonlylootLoOfferProducts = lootLoOfferProducts;
+        var result = await offerProductRepo.dataRepository.GetAll();
+        //lootLoOfferProducts = await flipkartOfferProduct.GetSerchOfferProducts(x => x.OfferProduct.SiteName == "Flipkart");
+        //readonlylootLoOfferProducts = lootLoOfferProducts;
         // appStateService.OnChange += StateHasChanged;
         appState.SetPageTitle("Offers By Catagory");
         appState.SetMetaTitle("LootLo Online: Offers By Catagory");

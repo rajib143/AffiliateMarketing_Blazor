@@ -22,7 +22,7 @@ namespace LootLoOnline.Business
                         if (instance == null)
                         {
                             instance = new MongoClient("mongodb+srv://llo_User:F7U3VkuO170NCwFT@cluster0.8ldl0.azure.mongodb.net/LootLoOnlineDB?retryWrites=true&w=majority");
-
+                           
                         }
                     }
                 }

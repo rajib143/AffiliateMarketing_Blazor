@@ -16,6 +16,8 @@ C:\Users\rajib\Source\Repos\LootLoOnline_Blazor\LootLoOnline.Business\obj\Debug\
 C:\Users\rajib\Source\Repos\LootLoOnline_Blazor\LootLoOnline.Business\obj\Debug\netcoreapp3.1\LootLoOnline.Business.dll
 C:\Users\rajib\Source\Repos\LootLoOnline_Blazor\LootLoOnline.Business\obj\Debug\netcoreapp3.1\LootLoOnline.Business.pdb
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\bin\Debug\netcoreapp3.1\LootLoOnline.Business.deps.json
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\bin\Debug\netcoreapp3.1\LootLoOnline.Business.runtimeconfig.json
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\bin\Debug\netcoreapp3.1\LootLoOnline.Business.runtimeconfig.dev.json
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\bin\Debug\netcoreapp3.1\LootLoOnline.Business.dll
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\bin\Debug\netcoreapp3.1\LootLoOnline.Business.pdb
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\obj\Debug\netcoreapp3.1\LootLoOnline.Business.AssemblyInfoInputs.cache
@@ -23,4 +25,5 @@ D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\obj\
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\obj\Debug\netcoreapp3.1\LootLoOnline.Business.csproj.CoreCompileInputs.cache
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\obj\Debug\netcoreapp3.1\LootLoOnline.Business.dll
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\obj\Debug\netcoreapp3.1\LootLoOnline.Business.pdb
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\obj\Debug\netcoreapp3.1\LootLoOnline.Business.genruntimeconfig.cache
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\obj\Debug\netcoreapp3.1\LootLoOnline.Business.csprojAssemblyReference.cache

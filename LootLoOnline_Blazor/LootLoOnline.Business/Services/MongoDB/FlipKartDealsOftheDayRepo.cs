@@ -14,7 +14,7 @@ namespace LootLoOnline.Business.Services
 {
     public class FlipKartDealsOftheDayRepo
     {
-        public IMongoDBRepository<LootLoDealsOftheDay> mongoDBRepository;
+        public IRepository<LootLoDealsOftheDay> mongoDBRepository;
         private IConfiguration configuration;
         public IMemoryCache MemoryCache { get; }
 
@@ -22,7 +22,7 @@ namespace LootLoOnline.Business.Services
         {
             configuration = config;
             MemoryCache = memoryCache;
-            mongoDBRepository = new MongoDbRepository<LootLoDealsOftheDay>();
+            mongoDBRepository = new MongoDbRepository<LootLoDealsOftheDay>(configuration,memoryCache);
         }
 
 

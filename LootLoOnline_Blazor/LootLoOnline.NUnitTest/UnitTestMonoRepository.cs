@@ -10,8 +10,8 @@ namespace LootLoOnline.NUnitTest
 {
     public class Tests
     {
-        private  IMongoDBRepository<Visitor> _visitor;
-        private IMongoDBRepository<LootLoOfferProduct> _LootLoOfferProduct;
+        private  IRepository<Visitor> _visitor;
+        private IRepository<LootLoOfferProduct> _LootLoOfferProduct;
 
         [SetUp]
         public void Setup()
@@ -22,17 +22,17 @@ namespace LootLoOnline.NUnitTest
         [Test]
         public void GetAll()
         {
-            _visitor = new MongoDbRepository<Visitor>();
-            _LootLoOfferProduct = new MongoDbRepository<LootLoOfferProduct>();
+            //_visitor = new MongoDbRepository<Visitor>();
+            //_LootLoOfferProduct = new MongoDbRepository<LootLoOfferProduct>();
            // var result = 
             //var result = _visitor.GetAll();
-            var result1 = _LootLoOfferProduct.SearchFor(x=> x.OfferProduct.CategoryName=="software");
+            //var result1 = _LootLoOfferProduct.SearchFor(x=> x.OfferProduct.CategoryName=="software");
             Assert.Pass();
         }
         [Test]
         public void DeleteALL()
         {
-            _visitor = new MongoDbRepository<Visitor>();
+           // _visitor = new MongoDbRepository<Visitor>();
             var result = _visitor.DeleteAll();
             Assert.Pass();
         }
@@ -42,14 +42,14 @@ namespace LootLoOnline.NUnitTest
             string flipkatAllOffers = Utility.GetApiResponseAsync("rajibmaha", "d2f2e72f8e2a4aff946adb037d647ca1", "https://affiliate-api.flipkart.net/affiliate/offers/v1/dotd/json").Result;
             FlipkartAllOffers allOffers = JsonConvert.DeserializeObject<FlipkartAllOffers>(flipkatAllOffers);
 
-            _visitor = new MongoDbRepository<Visitor>();
+           // _visitor = new MongoDbRepository<Visitor>();
     
             foreach( var item in allOffers.dotdList)
             {
                 Visitor visitor = new Visitor();
                 visitor.Id = Guid.NewGuid();
                 //visitor.dealsOfTheDayModel = item;
-                var result = _visitor.Insert(visitor);
+               // var result = _visitor.Insert(visitor);
             }
             
             Assert.Pass();

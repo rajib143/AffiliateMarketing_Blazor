@@ -16,6 +16,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.ResponseCompression;
 using System.IO.Compression;
+using LootLoOnline.Business;
+using Microsoft.EntityFrameworkCore;
+using LootLoOnline.Business.Services.Repository;
 
 namespace LootLoOnlineBlazor
 {
@@ -55,14 +58,19 @@ namespace LootLoOnlineBlazor
             //});
             services.AddHttpContextAccessor();
             //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            
+
             services.AddMemoryCache();
             services.AddSingleton<FlipkartService>();
             services.AddSingleton<OfferAdapter>();
             services.AddSingleton<FlipkartOfferAdapter>();
             services.AddSingleton<AppStateService>();
-            services.AddSingleton<VisitorService>();
+            services.AddSingleton<MongodbVisitorService>();
             services.AddSingleton<FlipKartOfferProductRepo>();
             services.AddSingleton<FlipKartDealsOftheDayRepo>();
+            services.AddDbContext<LootLoOnlineDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("SQLconnectionString")));
+            services.AddScoped<OfferProductRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

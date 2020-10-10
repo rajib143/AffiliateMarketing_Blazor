@@ -14,7 +14,7 @@ namespace LootLoOnline.Business.Services
 {
     public class FlipKartOfferProductRepo
     {
-        public IMongoDBRepository<LootLoOfferProduct> mongoDBRepository;
+        public IRepository<LootLoOfferProduct> mongoDBRepository;
         private IConfiguration configuration;
         public IMemoryCache MemoryCache { get; }
         private const string CacheKey_MongoOfferProducts = "flipkartAllOfferProducts";
@@ -22,7 +22,7 @@ namespace LootLoOnline.Business.Services
         {
             configuration = config;
             MemoryCache = memoryCache;
-            mongoDBRepository = new MongoDbRepository<LootLoOfferProduct>();
+            mongoDBRepository = new MongoDbRepository<LootLoOfferProduct>(configuration,memoryCache);
         }
 
 

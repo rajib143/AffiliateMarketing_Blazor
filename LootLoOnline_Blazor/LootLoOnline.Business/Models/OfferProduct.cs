@@ -1,43 +1,15 @@
-﻿using MongoDB.Driver;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
 
 namespace LootLoOnline.Business.Models
 {
-    public abstract class EntityBase
+   
+    public class OfferProduct
     {
-        public Guid Id { get; set; }
-    }
-
-    public class Visitor : EntityBase
-    {
-        public Visitor()
-        {
-            CreatedDate =DateTime.UtcNow;
-            Count = 1;
-        }
-        public string IPAddress { get; set; }
-        public string MacAddress { get; set; }
-        public int Count { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DealsOfTheDayModel dealsOfTheDayModel { get; set; }
-    }
-
-    public class LootLoOfferProduct : EntityBase
-    {
-        public LootLoOfferProduct()
-        {
-            CreatedDate = DateTime.UtcNow;
-        }
-      
-        public DateTime CreatedDate { get; set; }
-        public OfferProduct OfferProduct { get; set; }
-    }
-    public class OfferProduct 
-    {
+        [Key]
         public string productId { get; set; }
         public Nullable<System.DateTime> validTill { get; set; }
         public string shotTitle { get; set; }
@@ -76,32 +48,4 @@ namespace LootLoOnline.Business.Models
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public string SiteName { get; set; }
     }
-   
-    public class LootLoDealsOftheDay : EntityBase
-    {
-        public LootLoDealsOftheDay()
-        {
-            CreatedDate = DateTime.UtcNow;
-        }
-
-        public DateTime CreatedDate { get; set; }
-        public DealsOfTheDay dealsOfTheDay { get; set; }
-    }
-
-    public class DealsOfTheDay
-    {
-        public long Id { get; set; }
-        public Nullable<System.DateTime> startTime { get; set; }
-        public Nullable<System.DateTime> endTime { get; set; }
-        public string title { get; set; }
-        public string name { get; set; }
-        public string description { get; set; }
-        public string url { get; set; }
-        public string category { get; set; }
-        public string imageUrls_default { get; set; }
-        public string imageUrls_mid { get; set; }
-        public string imageUrls_low { get; set; }
-        public string availability { get; set; }
-    }
-
 }

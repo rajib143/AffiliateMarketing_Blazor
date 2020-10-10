@@ -22,7 +22,7 @@ namespace LootLoOnline.BatchJob
               .AddJsonFile("appsettings.json", true, true)
               .Build();
 
-            FlipKartBatchService flipKartBatchService = new FlipKartBatchService(config,cache);
+            FlipKartMongoDBBatchService flipKartBatchService = new FlipKartMongoDBBatchService(config,cache);
 
             logWriter.LogWrite(string.Format("Application Started for FlipKart API."));
 

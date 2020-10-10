@@ -10,17 +10,17 @@ using System.Threading.Tasks;
 
 namespace LootLoOnline.Business.Services
 {
-    public class VisitorService
+    public class MongodbVisitorService
     {
-        public IMongoDBRepository<Visitor> visitorRepository;
+        public IRepository<Visitor> visitorRepository;
         private IConfiguration configuration;
         public IMemoryCache MemoryCache { get; }
 
-        public VisitorService(IConfiguration config, IMemoryCache memoryCache)
+        public MongodbVisitorService(IConfiguration config, IMemoryCache memoryCache)
         {
             configuration = config;
             MemoryCache = memoryCache;
-            visitorRepository = new MongoDbRepository<Visitor>();
+            visitorRepository = new MongoDbRepository<Visitor>(configuration,MemoryCache);
         }
 
         public async Task<bool> InsertAvisitor(Visitor visitor)

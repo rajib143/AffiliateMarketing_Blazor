@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace LootLoOnline.Business.Services
 {
-    public class FlipKartBatchService
+    public class FlipKartMongoDBBatchService
     {
         public FlipKartOfferProductRepo flipKartOfferProductRepo;
         public FlipKartDealsOftheDayRepo flipKartDealsOftheDayRepo;
@@ -19,7 +19,7 @@ namespace LootLoOnline.Business.Services
         public IMemoryCache MemoryCache { get; }
       public  FlipkartService flipkartService { get; set; }
 
-        public FlipKartBatchService(IConfiguration config, IMemoryCache memoryCache)
+        public FlipKartMongoDBBatchService(IConfiguration config, IMemoryCache memoryCache)
         {
             configuration = config;
             MemoryCache = memoryCache;

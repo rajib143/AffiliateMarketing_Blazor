@@ -125,6 +125,13 @@ using Microsoft.JSInterop;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 18 "D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\_Imports.razor"
+using LootLoOnline.Business.Services.Repository;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/dealsoftheday")]
     public partial class DealsOfTheDay : Microsoft.AspNetCore.Components.ComponentBase, IDisposable
     {

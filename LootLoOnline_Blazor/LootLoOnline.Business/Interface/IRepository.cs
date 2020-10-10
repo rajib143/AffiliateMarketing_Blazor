@@ -8,7 +8,7 @@ using System.Text;
 namespace LootLoOnline.Business.Interface
 {
 
-    public interface IMongoDBRepository<TEntity> where TEntity : EntityBase
+    public interface IRepository<TEntity> where TEntity : EntityBase
     {
         bool Insert(TEntity entity);
         bool BulkInsert(IEnumerable<WriteModel<TEntity>> writeModels);
