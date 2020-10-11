@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LootLoOnline.Business.Services
@@ -22,7 +21,7 @@ namespace LootLoOnline.Business.Services
         {
             configuration = config;
             MemoryCache = memoryCache;
-            mongoDBRepository = new MongoDbRepository<LootLoOfferProduct>(configuration,memoryCache);
+            mongoDBRepository = new MongoDbRepository<LootLoOfferProduct>(configuration, memoryCache);
         }
 
 
@@ -39,7 +38,7 @@ namespace LootLoOnline.Business.Services
                             TimeSpan.FromSeconds(60)
                     });
 
-                   return mongoDBRepository.GetAll();
+                    return mongoDBRepository.GetAll();
                 });
 
                 return result.OrderBy(x => x.OfferProduct.validTill).ToList();
@@ -163,6 +162,6 @@ namespace LootLoOnline.Business.Services
         }
 
         #endregion
-        
+
     }
 }

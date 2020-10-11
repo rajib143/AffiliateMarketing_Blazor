@@ -3,9 +3,7 @@ using LootLoOnline.Business.Models;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LootLoOnline.Business.Services
@@ -20,7 +18,7 @@ namespace LootLoOnline.Business.Services
         {
             configuration = config;
             MemoryCache = memoryCache;
-            visitorRepository = new MongoDbRepository<Visitor>(configuration,MemoryCache);
+            visitorRepository = new MongoDbRepository<Visitor>(configuration, MemoryCache);
         }
 
         public async Task<bool> InsertAvisitor(Visitor visitor)
@@ -39,7 +37,7 @@ namespace LootLoOnline.Business.Services
                 else
                 {
                     Random random = new Random();
-                    visitor.Count = random.Next(10,1000);
+                    visitor.Count = random.Next(10, 1000);
                     isSuccess = visitorRepository.Insert(visitor);
                 }
                 return isSuccess;

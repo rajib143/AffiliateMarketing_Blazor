@@ -121,6 +121,27 @@ using Microsoft.JSInterop;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 18 "D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\_Imports.razor"
+using LootLoOnline.Business.Services.Repository;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 19 "D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\_Imports.razor"
+using LootLoOnlineBlazor.Model;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 20 "D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\_Imports.razor"
+using LootLoOnline.Business.Models.DBModel;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/counter")]
     public partial class Counter : Microsoft.AspNetCore.Components.ComponentBase
     {

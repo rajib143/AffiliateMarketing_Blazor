@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.NetworkInformation;
-using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.HttpOverrides;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace LootLoOnline.Business
 {
     public static class Utility
     {
-        
+
 
         public static DateTime UnixTimeToDateTime(this long unixtime)
         {

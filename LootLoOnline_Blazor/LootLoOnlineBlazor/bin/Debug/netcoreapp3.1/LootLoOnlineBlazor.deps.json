@@ -34,6 +34,7 @@
           "Microsoft.EntityFrameworkCore.Tools": "3.1.8",
           "Microsoft.Extensions.Configuration.Abstractions": "3.1.8",
           "NLog": "4.7.4",
+          "SonarAnalyzer.CSharp": "8.13.1.21947",
           "bootstrap": "4.5.2",
           "jQuery": "3.5.1",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
@@ -1052,6 +1053,7 @@
           "lib/netstandard2.0/SharpCompress.dll": {}
         }
       },
+      "SonarAnalyzer.CSharp/8.13.1.21947": {},
       "System.AppContext/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
@@ -4040,6 +4042,13 @@
       "sha512": "sha512-HBbT47JHvNrsZX2dTBzUBOSzBt+EmIRGLIBkbxcP6Jef7DB4eFWQX5iHWV3Nj7hABFPCjISrZ8s0z72nF2zFHQ==",
       "path": "sharpcompress/0.23.0",
       "hashPath": "sharpcompress.0.23.0.nupkg.sha512"
+    },
+    "SonarAnalyzer.CSharp/8.13.1.21947": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1NwVtDvS3uJUAST8zOmxuNDZL+qBXjpJ41scI5ry9xSfx9yyNaIJ4IDkJhFqi6emp3x/e/vGi8Xun9HHfHwvTg==",
+      "path": "sonaranalyzer.csharp/8.13.1.21947",
+      "hashPath": "sonaranalyzer.csharp.8.13.1.21947.nupkg.sha512"
     },
     "System.AppContext/4.3.0": {
       "type": "package",

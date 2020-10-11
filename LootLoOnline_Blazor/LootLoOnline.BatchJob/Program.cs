@@ -3,15 +3,13 @@ using LootLoOnline.Business.Services;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using System;
-using System.Threading.Tasks;
 
 namespace LootLoOnline.BatchJob
 {
     class Program
     {
 
-
-        static void  Main(string[] args)
+        static void Main(string[] args)
         {
             LogWriter logWriter = new LogWriter("AfiliateAPIConsumeJob");
 
@@ -22,7 +20,7 @@ namespace LootLoOnline.BatchJob
               .AddJsonFile("appsettings.json", true, true)
               .Build();
 
-            FlipKartMongoDBBatchService flipKartBatchService = new FlipKartMongoDBBatchService(config,cache);
+            FlipKartMongoDBBatchService flipKartBatchService = new FlipKartMongoDBBatchService(config, cache);
 
             logWriter.LogWrite(string.Format("Application Started for FlipKart API."));
 

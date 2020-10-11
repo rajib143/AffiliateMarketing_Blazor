@@ -20,10 +20,10 @@ D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\bin\
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\bin\Debug\netcoreapp3.1\LootLoOnline.Business.runtimeconfig.dev.json
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\bin\Debug\netcoreapp3.1\LootLoOnline.Business.dll
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\bin\Debug\netcoreapp3.1\LootLoOnline.Business.pdb
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\obj\Debug\netcoreapp3.1\LootLoOnline.Business.csprojAssemblyReference.cache
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\obj\Debug\netcoreapp3.1\LootLoOnline.Business.AssemblyInfoInputs.cache
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\obj\Debug\netcoreapp3.1\LootLoOnline.Business.AssemblyInfo.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\obj\Debug\netcoreapp3.1\LootLoOnline.Business.csproj.CoreCompileInputs.cache
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\obj\Debug\netcoreapp3.1\LootLoOnline.Business.dll
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\obj\Debug\netcoreapp3.1\LootLoOnline.Business.pdb
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\obj\Debug\netcoreapp3.1\LootLoOnline.Business.genruntimeconfig.cache
-D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnline.Business\obj\Debug\netcoreapp3.1\LootLoOnline.Business.csprojAssemblyReference.cache

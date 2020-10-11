@@ -1,0 +1,75 @@
+﻿@inject AppStateService appState
+@inject IHttpContextAccessor httpContextAccessor
+@inject VisitedUserRepository visitedUserRepo
+@implements IDisposable
+
+
+@if (lootLoOfferProducts == null)
+{
+    <h1>Loading...</h1>
+}
+else
+{
+    foreach (var offer in lootLoOfferProducts)
+    {
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box">
+                <a href="/caragoryoffers/{@(offer.productId.Trim())}" target="_blank" @onclick="async () => SaveViewCount(offer)">
+                    <img class="card-img-top img-fluid img-thumbnail lazy_load" loading="lazy" alt="@(offer.title)" src="@offer.imageUrls_800" data-original="@offer.imageUrls_800" width="200" height="200" lazyload="on" />
+                </a>
+                <div class="info-box-content">
+                    <span class="info-box-text">@(offer.shotTitle)</span>
+                    <span class="info-box-number">
+                        <small class="text-muted">Selling Price : <span class="badge badge-warning">@(offer.currency + " " + offer.SellingPrice) </span></small><br />
+                        <small class="text-muted">Special Price : <span class="badge badge-success">@(offer.currency+" "+ offer.SpecialPrice)</span></small>
+
+                    </span>
+                    <span class="info-box-text">
+                        <small class="text-muted">Expire on:@(offer.validTill)</small>
+                    </span>
+                    <div class="btn-group">
+                        <a href="@offer.productUrl" target="_blank" alt="@(offer.title)" class="btn btn-sm btn-outline-info" @onclick="async () => SaveViewCount(offer)">Shop Now</a>
+                    </div>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+    }
+}
+
+@code {
+    [Parameter]
+    public IReadOnlyList<OfferProductViewModel> lootLoOfferProducts { get; set; }
+
+    private async Task SaveViewCount(OfferProductViewModel model)
+    {
+        if (model != null)
+        {
+            string IpAddress = httpContextAccessor.HttpContext.Connection?.RemoteIpAddress.ToString();
+            VisitedUser visitor = new VisitedUser();
+            // visitor.ID = Guid.NewGuid();
+            Random random = new Random();
+
+            visitor.IPAddress = IpAddress;
+            visitor.LastVisitedDate = DateTime.UtcNow;
+            visitor.CreatedDate = DateTime.UtcNow;
+            visitor.ProductId = model.productId;
+            visitor.ProductTitle = model.shotTitle;
+            visitor.ProductId = model.productId;
+            visitor.ProductUrl = model.productUrl;
+            visitor.CatagoryID = model.CategoryId;
+            visitor.CatagoryPath = model.CategoryPath;
+            visitor.Count = random.Next(10, 1000);
+            visitor.ImageUrl = model.imageUrls_800;
+            visitor.ClickedOnBuyNow = true;
+            visitedUserRepo.Add(visitor);
+        }
+
+    }
+
+    public void Dispose()
+    {
+        // appStateService.OnChange -= StateHasChanged;
+    }
+}

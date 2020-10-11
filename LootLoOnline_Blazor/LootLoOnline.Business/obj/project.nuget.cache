@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "27Bvp9+riEa1Lh3sI2iz6zMqABUcus/qqcZy4ci+bVJQkKhlZXXH/I4sEbI+E/31C6YteoGy/mVdtFQNs1lgoA==",
+  "dgSpecHash": "Q9yXdgEOMQPSGQgsJeY1fp1M1z8t9Av+Re4eP2OEsoQQVI60eOIn+iXj3I4dCC3SAx4XAkKzyTyJh4dm0NReVg==",
   "success": true,
   "projectFilePath": "D:\\Work\\AffiliateMarketing_Blazor\\LootLoOnline_Blazor\\LootLoOnline.Business\\LootLoOnline.Business.csproj",
   "expectedPackageFiles": [
@@ -67,6 +67,7 @@
     "C:\\Users\\rajib\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\rajib\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\rajib\\.nuget\\packages\\sharpcompress\\0.23.0\\sharpcompress.0.23.0.nupkg.sha512",
+    "C:\\Users\\rajib\\.nuget\\packages\\sonaranalyzer.csharp\\8.13.1.21947\\sonaranalyzer.csharp.8.13.1.21947.nupkg.sha512",
     "C:\\Users\\rajib\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\rajib\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
     "C:\\Users\\rajib\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

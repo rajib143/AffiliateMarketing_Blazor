@@ -124,10 +124,10 @@
 
         $(document).ready(function () {
             // this is called when the DOM is loaded, but not when the blazor component is loaded.
-            window.alertFunctions.init();
+            window.Functions.init();
         });
 
-        window.alertFunctions = {
+        window.Functions = {
             init: function () {
                 // this always need to be called specific from the blazor component, because $(document).ready() is not recalled
                 // Now we have to call all initializations of every component that normally will have events and actions initialized on $(document).ready()
@@ -142,6 +142,8 @@
                     "responsive": true,
 
                 });
+
+                $("img .lazy_load").lazyload();
             },
             show: function (element) {
                 

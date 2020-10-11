@@ -162,6 +162,7 @@
     <Import Project="$(NuGetPackageRoot)blazored.typeahead\4.2.2\buildTransitive\Blazored.Typeahead.props" Condition="Exists('$(NuGetPackageRoot)blazored.typeahead\4.2.2\buildTransitive\Blazored.Typeahead.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgSonarAnalyzer_CSharp Condition=" '$(PkgSonarAnalyzer_CSharp)' == '' ">C:\Users\rajib\.nuget\packages\sonaranalyzer.csharp\8.13.1.21947</PkgSonarAnalyzer_CSharp>
     <PkgMicrosoft_EntityFrameworkCore_Tools Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools)' == '' ">C:\Users\rajib\.nuget\packages\microsoft.entityframeworkcore.tools\3.1.8</PkgMicrosoft_EntityFrameworkCore_Tools>
     <PkgjQuery Condition=" '$(PkgjQuery)' == '' ">C:\Users\rajib\.nuget\packages\jquery\3.5.1</PkgjQuery>
     <PkgFontAwesome Condition=" '$(PkgFontAwesome)' == '' ">C:\Users\rajib\.nuget\packages\fontawesome\4.7.0</PkgFontAwesome>

@@ -115,6 +115,20 @@ using LootLoOnline.Business.Services.Repository;
 #line hidden
 #nullable disable
 #nullable restore
+#line 19 "D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\_Imports.razor"
+using LootLoOnlineBlazor.Model;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 20 "D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\_Imports.razor"
+using LootLoOnline.Business.Models.DBModel;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\Pages\Search.razor"
 using Blazored.Typeahead;
 

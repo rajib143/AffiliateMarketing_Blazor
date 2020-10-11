@@ -2,11 +2,8 @@
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LootLoOnline.Business.Services
@@ -104,8 +101,8 @@ namespace LootLoOnline.Business.Services
                         AbsoluteExpirationRelativeToNow =
                             TimeSpan.FromSeconds(50)
                     });
-                   
-                    return await ProcessOfferProducts(resourceName,getApi);
+
+                    return await ProcessOfferProducts(resourceName, getApi);
                 });
 
                 return result;
@@ -177,7 +174,7 @@ namespace LootLoOnline.Business.Services
                 List<ProductCatagory> productCatagory = new List<ProductCatagory>();
                 string response = await Utility.GetApiResponseAsync(config.FkAffiliateId, config.FkAffiliateToken, config.FlipkartProductCatagoryApiUrl);
 
-              //  productCatagory = JsonConvert.DeserializeObject<List<ProductCatagory>>(response);
+                //  productCatagory = JsonConvert.DeserializeObject<List<ProductCatagory>>(response);
                 var resultDic = JsonConvert.DeserializeObject<Dictionary<string, object>>(response);
                 var apiGroups = JsonConvert.DeserializeObject<Dictionary<string, object>>(resultDic["apiGroups"].ToString());
                 var affiliate = JsonConvert.DeserializeObject<Dictionary<string, object>>(apiGroups["affiliate"].ToString());
@@ -243,7 +240,7 @@ namespace LootLoOnline.Business.Services
                 {
                     try
                     {
-                        var offerProduct =await ProcessOfferProducts(key.resourceName, key.getApi);
+                        var offerProduct = await ProcessOfferProducts(key.resourceName, key.getApi);
                         flipkartProducts.Add(offerProduct);
                     }
                     catch (Exception ex)
@@ -258,8 +255,8 @@ namespace LootLoOnline.Business.Services
                 throw ex;
             }
         }
-    
-    
+
+
 
     }
 }

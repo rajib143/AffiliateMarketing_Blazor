@@ -1,9 +1,4 @@
-﻿using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
+﻿using System;
 
 namespace LootLoOnline.Business.Models
 {
@@ -16,7 +11,7 @@ namespace LootLoOnline.Business.Models
     {
         public Visitor()
         {
-            CreatedDate =DateTime.UtcNow;
+            CreatedDate = DateTime.UtcNow;
             Count = 1;
         }
         public string IPAddress { get; set; }
@@ -32,12 +27,12 @@ namespace LootLoOnline.Business.Models
         {
             CreatedDate = DateTime.UtcNow;
         }
-      
+
         public DateTime CreatedDate { get; set; }
         public OfferProduct OfferProduct { get; set; }
     }
-  
-   
+
+
     public class LootLoDealsOftheDay : EntityBase
     {
         public LootLoDealsOftheDay()
@@ -49,6 +44,6 @@ namespace LootLoOnline.Business.Models
         public DealsOfTheDay dealsOfTheDay { get; set; }
     }
 
-  
+
 
 }

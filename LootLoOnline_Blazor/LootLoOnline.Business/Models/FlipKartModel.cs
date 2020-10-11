@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace LootLoOnline.Business.Models
 {
@@ -144,7 +142,7 @@ namespace LootLoOnline.Business.Models
         public string productId { get; set; }
         public string title { get; set; }
         public string productDescription { get; set; }
-        public Dictionary<string,string> imageUrls { get; set; }
+        public Dictionary<string, string> imageUrls { get; set; }
         public object productFamily { get; set; }
         public Price maximumRetailPrice { get; set; }
         public Price flipkartSellingPrice { get; set; }

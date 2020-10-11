@@ -1,12 +1,9 @@
-﻿using LootLoOnline.Business.Interface;
-using LootLoOnline.Business.Models;
+﻿using LootLoOnline.Business.Models;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LootLoOnline.Business.Services
@@ -17,7 +14,7 @@ namespace LootLoOnline.Business.Services
         public FlipKartDealsOftheDayRepo flipKartDealsOftheDayRepo;
         private IConfiguration configuration;
         public IMemoryCache MemoryCache { get; }
-      public  FlipkartService flipkartService { get; set; }
+        public FlipkartService flipkartService { get; set; }
 
         public FlipKartMongoDBBatchService(IConfiguration config, IMemoryCache memoryCache)
         {
@@ -125,7 +122,7 @@ namespace LootLoOnline.Business.Services
                                 lifeStyleInfo = item.categorySpecificInfoV1.lifeStyleInfo.ToString(),
                                 IsUpdated = false,
                                 CreatedDate = DateTime.Now,
-                                CategoryName= resourceName,
+                                CategoryName = resourceName,
                                 SiteName = SiteEnum.Flipkart.ToString()
                             });
 
@@ -133,7 +130,7 @@ namespace LootLoOnline.Business.Services
                     }
                     catch (Exception ex)
                     {
-                      
+
                     }
                     //}
                 });
@@ -144,7 +141,7 @@ namespace LootLoOnline.Business.Services
             }
             catch (Exception ex)
             {
-               // log.Error("Error in " + SiteName.Flipkart.ToString() + " InserIntoOfferproducts processing ", ex);
+                // log.Error("Error in " + SiteName.Flipkart.ToString() + " InserIntoOfferproducts processing ", ex);
                 throw ex;
             }
         }
@@ -153,41 +150,41 @@ namespace LootLoOnline.Business.Services
             try
             {
 
-                FlipkartAllOffers flipkartAllOffers =await flipkartService.ProcessAllOffers();
+                FlipkartAllOffers flipkartAllOffers = await flipkartService.ProcessAllOffers();
                 List<DealsOfTheDay> dealsOfTheDays = new List<DealsOfTheDay>();
-                 Parallel.ForEach(flipkartAllOffers.allOffersList.ToList(), (item) =>
-                {
-                    try
-                    {
-                        DateTime startTime = item.startTime.UnixTimeToDateTime();
-                        DateTime endTime = item.endTime.UnixTimeToDateTime();
-                        string imageUrls_default = item.imageUrls.FirstOrDefault(x => x.resolutionType == "default") != null ?
-                                                                                item.imageUrls.FirstOrDefault(x => x.resolutionType == "default").url : string.Empty;
-                        string imageUrls_mid = item.imageUrls.FirstOrDefault(x => x.resolutionType == "mid") != null ?
-                                                                                item.imageUrls.FirstOrDefault(x => x.resolutionType == "mid").url : string.Empty;
-                        string imageUrls_low = item.imageUrls.FirstOrDefault(x => x.resolutionType == "low") != null ?
-                                                                                item.imageUrls.FirstOrDefault(x => x.resolutionType == "low").url : string.Empty;
-                        dealsOfTheDays.Add(new DealsOfTheDay()
-                        {
-                            startTime = startTime,
-                            endTime = endTime,
-                            title = item.title,
-                            name = item.name,
-                            description = item.description,
-                            url = item.url,
-                            category = item.category,
-                            imageUrls_default = imageUrls_default,
-                            imageUrls_mid = imageUrls_mid,
-                            imageUrls_low = imageUrls_low,
-                            availability = item.availability
-                        });
-                    }
-                    catch (Exception ex)
-                    {
-                      
+                Parallel.ForEach(flipkartAllOffers.allOffersList.ToList(), (item) =>
+               {
+                   try
+                   {
+                       DateTime startTime = item.startTime.UnixTimeToDateTime();
+                       DateTime endTime = item.endTime.UnixTimeToDateTime();
+                       string imageUrls_default = item.imageUrls.FirstOrDefault(x => x.resolutionType == "default") != null ?
+                                                                               item.imageUrls.FirstOrDefault(x => x.resolutionType == "default").url : string.Empty;
+                       string imageUrls_mid = item.imageUrls.FirstOrDefault(x => x.resolutionType == "mid") != null ?
+                                                                               item.imageUrls.FirstOrDefault(x => x.resolutionType == "mid").url : string.Empty;
+                       string imageUrls_low = item.imageUrls.FirstOrDefault(x => x.resolutionType == "low") != null ?
+                                                                               item.imageUrls.FirstOrDefault(x => x.resolutionType == "low").url : string.Empty;
+                       dealsOfTheDays.Add(new DealsOfTheDay()
+                       {
+                           startTime = startTime,
+                           endTime = endTime,
+                           title = item.title,
+                           name = item.name,
+                           description = item.description,
+                           url = item.url,
+                           category = item.category,
+                           imageUrls_default = imageUrls_default,
+                           imageUrls_mid = imageUrls_mid,
+                           imageUrls_low = imageUrls_low,
+                           availability = item.availability
+                       });
+                   }
+                   catch (Exception ex)
+                   {
+
                         //throw;
                     }
-                });
+               });
 
                 flipKartDealsOftheDayRepo.AddBulkAllOffers(dealsOfTheDays);
             }
@@ -200,17 +197,17 @@ namespace LootLoOnline.Business.Services
         {
             try
             {
-              await  flipKartDealsOftheDayRepo.RemoveBulkAllOffers();
-              await  flipKartOfferProductRepo.RemoveBulkOfferProducts();
+                await flipKartDealsOftheDayRepo.RemoveBulkAllOffers();
+                await flipKartOfferProductRepo.RemoveBulkOfferProducts();
             }
             catch (Exception ex)
             {
-               
+
                 throw ex;
             }
         }
 
-     
-       
+
+
     }
 }

@@ -1,0 +1,129 @@
+﻿@page "/caragoryoffers/{ProductId}"
+@inject AppStateService appState
+@inject IHttpContextAccessor httpContextAccessor
+@inject FlipkartOfferAdapter OfferAdapter
+@inject OfferProductRepository offerProductRepo
+@inject VisitedUserRepository visitedUserRepo
+@inject LogsRepository _logRepo
+@inject IJSRuntime JSRuntime
+@implements IDisposable
+@{
+    sharedLink = "https://www.lootloonline.com/caragoryoffers/" + ProductId;
+}
+<div class="content">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12 col-sm-6">
+                    <h3 class="d-inline-block d-sm-none">@offerProduct.title</h3>
+                    <div class="col-12">
+                        <img src="@offerProduct.imageUrls_800" class="product-image" alt="@(offerProduct.title +" - "+ offerProduct.shotTitle )">
+                    </div>
+                    @*<div class="col-12 product-image-thumbs">
+                            <div class="product-image-thumb active"><img src="../../dist/img/prod-1.jpg" alt="Product Image"></div>
+                            <div class="product-image-thumb"><img src="../../dist/img/prod-2.jpg" alt="Product Image"></div>
+                            <div class="product-image-thumb"><img src="../../dist/img/prod-3.jpg" alt="Product Image"></div>
+                            <div class="product-image-thumb"><img src="../../dist/img/prod-4.jpg" alt="Product Image"></div>
+                            <div class="product-image-thumb"><img src="../../dist/img/prod-5.jpg" alt="Product Image"></div>
+                        </div>*@
+                </div>
+                <div class="col-12 col-sm-6">
+                    <h3 class="my-3">@offerProduct.shotTitle</h3>
+                    <p>@(offerProduct.title )</p>
+
+                    <hr>
+                    <h4>@offerProduct.codAvailable</h4>
+
+                    <div class="bg-gray py-2 px-3 mt-4">
+                        <h2 class="mb-0">
+                            @(offerProduct.currency +" "+ offerProduct.SpecialPrice)
+                        </h2>
+                        <h4 class="mt-0">
+                            <small>@(offerProduct.currency +" "+ offerProduct.SellingPrice) </small>
+                        </h4>
+                    </div>
+
+                    <div class="mt-4">
+                        <a class="btn btn-primary btn-lg btn-flat" target="_blank" @onclick="async () => SaveViewCount(offerProduct)" href="@offerProduct.productUrl" title="@(offerProduct.shotTitle )">
+                            <i class="fas fa-cart-plus fa-lg mr-2"></i>
+                            SHOP NOW
+                        </a>
+
+                    </div>
+
+                    <div class="mt-4 product-share">
+                        <a target="_blank" href="https://www.facebook.com/sharer.php?u=@(sharedLink)" onclick="popupwindowAtCenter(this.href,'Share on Facebook',600,600);return false;" class="text-gray">
+                            <i class="fab fa-facebook-square fa-2x"></i>
+                        </a>
+                        <a target="_blank" href="https://twitter.com/intent/tweet?text=@(offerProduct.shotTitle)&source=lootloonline.com&url=@(sharedLink)" onclick="popupwindowAtCenter(this.href,'Share on Twitter',600,600);return false;" class="text-gray">
+                            <i class="fab fa-twitter-square fa-2x"></i>
+                        </a>
+                        <a target="_blank" href="whatsapp://send?text=@(offerProduct.shotTitle +" - "+offerProduct.currency+" "+ offerProduct.SpecialPrice +". SHOP NOW - "+sharedLink )" data-action="share/whatsapp/share" class="wa_btn wa_btn_s text-gray">
+                            <i class="fab fa-whatsapp-square fa-2x"></i>
+                        </a>
+                        @*
+                            <a href="#" class="text-gray">
+                                <i class="fas fa-envelope-square fa-2x"></i>
+                            </a>
+                            <a href="#" class="text-gray">
+                                <i class="fas fa-rss-square fa-2x"></i>
+                            </a>*@
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@code {
+    [Parameter]
+    public string ProductId { get; set; }
+
+    public OfferProduct offerProduct { get; set; }
+
+    public string sharedLink { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!string.IsNullOrEmpty(ProductId))
+        {
+            ProductId = ProductId.Replace('{', ' ').Replace('}', ' ').Trim();
+            offerProduct = await offerProductRepo.Get(m => m.productId == ProductId);
+
+
+        }
+        appState.SetPageTitle("Offers By Catagory");
+        appState.SetMetaTitle("LootLo Online: Offers By Catagory");
+        appState.SetMetaDescription("LootLo Online: Offers By Catagory");
+    }
+
+    private async Task SaveViewCount(OfferProduct model)
+    {
+        if (model != null)
+        {
+            string IpAddress = httpContextAccessor.HttpContext.Connection?.RemoteIpAddress.ToString();
+            VisitedUser visitor = new VisitedUser();
+            // visitor.ID = Guid.NewGuid();
+            Random random = new Random();
+
+            visitor.IPAddress = IpAddress;
+            visitor.LastVisitedDate = DateTime.UtcNow;
+            visitor.CreatedDate = DateTime.UtcNow;
+            visitor.ProductId = model.productId;
+            visitor.ProductTitle = model.shotTitle;
+            visitor.ProductId = model.productId;
+            visitor.ProductUrl = model.productUrl;
+            visitor.CatagoryID = model.CategoryId;
+            visitor.CatagoryPath = model.categoryPath;
+            // visitor.Count = random.Next(10, 1000);
+            visitor.ImageUrl = model.imageUrls_800;
+            visitor.ClickedOnBuyNow = true;
+            visitedUserRepo.InsertAvisitor(visitor);
+        }
+
+    }
+    public void Dispose()
+    {
+        // appStateService.OnChange -= StateHasChanged;
+    }
+}

@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
+﻿using System.ComponentModel;
 
 namespace LootLoOnline.Business
 {
     public enum SiteEnum
     {
         [Description("AllSites")]
-        All =0,
+        All = 0,
         [Description("Flipkart")]
-        Flipkart=1
+        Flipkart = 1
 
     }
 }

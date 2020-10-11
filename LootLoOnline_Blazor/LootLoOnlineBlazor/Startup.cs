@@ -1,24 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using LootLoOnline.Business;
+using LootLoOnline.Business.BusinessClass;
+using LootLoOnline.Business.Services;
+using LootLoOnline.Business.Services.Repository;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using LootLoOnline.Business.Services;
-using LootLoOnline.Business.BusinessClass;
-using LootLoOnline.Business.Interface;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpOverrides;
-using Microsoft.AspNetCore.ResponseCompression;
 using System.IO.Compression;
-using LootLoOnline.Business;
-using Microsoft.EntityFrameworkCore;
-using LootLoOnline.Business.Services.Repository;
+using System.Linq;
 
 namespace LootLoOnlineBlazor
 {
@@ -37,6 +29,7 @@ namespace LootLoOnlineBlazor
         {
             services.AddRazorPages();
             services.AddServerSideBlazor().AddCircuitOptions(options => { options.DetailedErrors = true; });
+
             // services.AddResponseCompression();
             services.AddResponseCompression(options =>
             {
@@ -58,7 +51,7 @@ namespace LootLoOnlineBlazor
             //});
             services.AddHttpContextAccessor();
             //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            
+
 
             services.AddMemoryCache();
             services.AddSingleton<FlipkartService>();
@@ -68,9 +61,16 @@ namespace LootLoOnlineBlazor
             services.AddSingleton<MongodbVisitorService>();
             services.AddSingleton<FlipKartOfferProductRepo>();
             services.AddSingleton<FlipKartDealsOftheDayRepo>();
+
             services.AddDbContext<LootLoOnlineDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("SQLconnectionString")));
-            services.AddScoped<OfferProductRepo>();
+            options.UseSqlServer(Configuration["ConnectionStrings:SQLServerconnectionString"]));
+            // services.AddTransient(typeof(IDataRepository<>), typeof(DataRepository<>));
+            services.AddScoped<OfferProductRepository>();
+            services.AddScoped<LogsRepository>();
+            services.AddScoped<VisitedUserRepository>();
+            // services.AddTransient<ICustomerRepository, CustomerRepository>();
+            //services.AddScoped<OfferProductRepo>();
+            //services.AddScoped<LogsRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -98,6 +98,7 @@ namespace LootLoOnlineBlazor
             {
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/{name?}", "/_Host");
+                //endpoints.MapFallbackToPage("/caragoryoffers/{ProductId?}", "/_Host");
                 endpoints.MapFallbackToPage("/_Host");
             });
         }

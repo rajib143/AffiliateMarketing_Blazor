@@ -1,13 +1,10 @@
 ﻿using LootLoOnline.Business.Interface;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LootLoOnline.Business.Services.Repository
@@ -15,9 +12,9 @@ namespace LootLoOnline.Business.Services.Repository
 
     public class DataRepository<T> : IDataRepository<T> where T : class
     {
-        private static LootLoOnlineDbContext _lootLoOnlineDatabaseContext;
-        private IConfiguration configuration;
-        public IMemoryCache MemoryCache { get; }
+        private readonly LootLoOnlineDbContext _lootLoOnlineDatabaseContext;
+        //private IConfiguration configuration;
+        //public IMemoryCache MemoryCache { get; }
         //public DataRepository(IConfiguration config, IMemoryCache memoryCache)
         //{
         //    configuration = config;
@@ -31,18 +28,18 @@ namespace LootLoOnline.Business.Services.Repository
 
             _lootLoOnlineDatabaseContext = lootLoOnlineDbContext;
         }
-        public virtual async Task<List<T>> GetAll()
+        public async Task<IQueryable<T>> GetAll()
         {
             try
             {
-                return _lootLoOnlineDatabaseContext.Set<T>().ToList();
+                return _lootLoOnlineDatabaseContext.Set<T>();
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        public virtual async Task<List<T>> Find(Expression<Func<T, bool>> predicate, Func<IQueryable<T>, IOrderedQueryable<T>> orderExpression = null)
+        public async Task<List<T>> Find(Expression<Func<T, bool>> predicate, Func<IQueryable<T>, IOrderedQueryable<T>> orderExpression = null)
         {
             var result = _lootLoOnlineDatabaseContext.Set<T>().AsQueryable();
 
@@ -55,7 +52,7 @@ namespace LootLoOnline.Business.Services.Repository
 
             return result.ToList();
         }
-        public virtual async Task<List<T>> GetAllByFilter(int? page, int? pageSize, System.Linq.Expressions.Expression<Func<T, bool>> predicate, System.Linq.Expressions.Expression<Func<T, object>> sort)
+        public async Task<List<T>> GetAllByFilter(int? page, int? pageSize, Expression<Func<T, bool>> predicate, Expression<Func<T, object>> sort)
         {
             var result = _lootLoOnlineDatabaseContext.Set<T>().AsQueryable();
 
@@ -70,7 +67,7 @@ namespace LootLoOnline.Business.Services.Repository
 
             return result.ToList();
         }
-        public virtual T Get(Func<T, bool> where,
+        public async Task<T> Get(Func<T, bool> where,
          params Expression<Func<T, object>>[] navigationProperties)
         {
             try
@@ -95,7 +92,7 @@ namespace LootLoOnline.Business.Services.Repository
             }
 
         }
-        public virtual async Task<int> Add(T item)
+        public async Task<int> Add(T item)
         {
             try
             {
@@ -107,7 +104,7 @@ namespace LootLoOnline.Business.Services.Repository
                 throw ex;
             }
         }
-        public virtual async Task<bool> BulkAdd(List<T> items)
+        public async Task<bool> BulkAdd(List<T> items)
         {
             try
             {
@@ -164,7 +161,7 @@ namespace LootLoOnline.Business.Services.Repository
 
             return true;
         }
-        public virtual async Task<int> Update(T item)
+        public async Task<int> Update(T item)
         {
             try
             {
@@ -177,7 +174,7 @@ namespace LootLoOnline.Business.Services.Repository
                 throw ex;
             }
         }
-        public virtual async Task<bool> Delete(T item)
+        public async Task<bool> Delete(T item)
         {
             try
             {
@@ -193,7 +190,7 @@ namespace LootLoOnline.Business.Services.Repository
                 throw ex;
             }
         }
-        public virtual async Task<bool> BulkDelete(List<T> items)
+        public async Task<bool> BulkDelete(List<T> items)
         {
             try
             {
@@ -213,7 +210,7 @@ namespace LootLoOnline.Business.Services.Repository
                 throw ex;
             }
         }
-        public virtual async Task<List<T>> GetOffersByFilter(int? page, int? pageSize, System.Linq.Expressions.Expression<Func<T, bool>> predicate, System.Linq.Expressions.Expression<Func<T, object>> sort)
+        public async Task<List<T>> GetOffersByFilter(int? page, int? pageSize, System.Linq.Expressions.Expression<Func<T, bool>> predicate, System.Linq.Expressions.Expression<Func<T, object>> sort)
         {
             var result = _lootLoOnlineDatabaseContext.Set<T>().AsQueryable();
 

@@ -921,6 +921,9 @@
           "lib/netstandard2.0/SharpCompress.dll": {}
         }
       },
+      "SonarAnalyzer.CSharp/8.13.1.21947": {
+        "type": "package"
+      },
       "System.AppContext/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -3518,6 +3521,26 @@
         "lib/netstandard2.0/SharpCompress.dll",
         "sharpcompress.0.23.0.nupkg.sha512",
         "sharpcompress.nuspec"
+      ]
+    },
+    "SonarAnalyzer.CSharp/8.13.1.21947": {
+      "sha512": "1NwVtDvS3uJUAST8zOmxuNDZL+qBXjpJ41scI5ry9xSfx9yyNaIJ4IDkJhFqi6emp3x/e/vGi8Xun9HHfHwvTg==",
+      "type": "package",
+      "path": "sonaranalyzer.csharp/8.13.1.21947",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "analyzers/Google.Protobuf.dll",
+        "analyzers/SonarAnalyzer.CFG.dll",
+        "analyzers/SonarAnalyzer.CSharp.dll",
+        "analyzers/SonarAnalyzer.dll",
+        "images/sonarsource_64.png",
+        "sonaranalyzer.csharp.8.13.1.21947.nupkg.sha512",
+        "sonaranalyzer.csharp.nuspec",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
       ]
     },
     "System.AppContext/4.1.0": {
@@ -7068,6 +7091,7 @@
       "Microsoft.NET.Test.Sdk >= 16.4.0",
       "MongoDB.Driver >= 2.11.2",
       "NUnit3TestAdapter >= 3.15.1",
+      "SonarAnalyzer.CSharp >= 8.13.1.21947",
       "nunit >= 3.12.0"
     ]
   },
@@ -7123,6 +7147,12 @@
           "NUnit3TestAdapter": {
             "target": "Package",
             "version": "[3.15.1, )"
+          },
+          "SonarAnalyzer.CSharp": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[8.13.1.21947, )"
           },
           "nunit": {
             "target": "Package",

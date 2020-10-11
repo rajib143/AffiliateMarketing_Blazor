@@ -4,7 +4,6 @@ using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LootLoOnline.Business.BusinessClass
@@ -38,7 +37,7 @@ namespace LootLoOnline.Business.BusinessClass
         {
             try
             {
-                return await flipkartOfferAdaptee.GetDealsOfTheDay( filterByName, filterByValue);
+                return await flipkartOfferAdaptee.GetDealsOfTheDay(filterByName, filterByValue);
             }
             catch (Exception ex)
             {

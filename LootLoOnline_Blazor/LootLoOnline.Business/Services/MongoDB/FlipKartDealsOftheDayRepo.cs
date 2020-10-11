@@ -6,8 +6,6 @@ using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LootLoOnline.Business.Services
@@ -22,7 +20,7 @@ namespace LootLoOnline.Business.Services
         {
             configuration = config;
             MemoryCache = memoryCache;
-            mongoDBRepository = new MongoDbRepository<LootLoDealsOftheDay>(configuration,memoryCache);
+            mongoDBRepository = new MongoDbRepository<LootLoDealsOftheDay>(configuration, memoryCache);
         }
 
 
@@ -71,10 +69,10 @@ namespace LootLoOnline.Business.Services
                     LootLoDealsOftheDay flipKartDealsOftheDay = new LootLoDealsOftheDay();
                     flipKartDealsOftheDay.dealsOfTheDay = item;
                     listWrites.Add(new InsertOneModel<LootLoDealsOftheDay>(flipKartDealsOftheDay));
-                   // await AddAllOffer(flipKartDealsOftheDay);
+                    // await AddAllOffer(flipKartDealsOftheDay);
                 }
                 return mongoDBRepository.BulkInsert(listWrites);
-               
+
             }
             catch (Exception ex)
             {

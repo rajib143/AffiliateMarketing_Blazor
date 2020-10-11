@@ -1,7 +1,6 @@
 using LootLoOnline.Business;
 using LootLoOnline.Business.Interface;
 using LootLoOnline.Business.Models;
-using LootLoOnline.Business.Services;
 using Newtonsoft.Json;
 using NUnit.Framework;
 using System;
@@ -10,13 +9,13 @@ namespace LootLoOnline.NUnitTest
 {
     public class Tests
     {
-        private  IRepository<Visitor> _visitor;
+        private IRepository<Visitor> _visitor;
         private IRepository<LootLoOfferProduct> _LootLoOfferProduct;
 
         [SetUp]
         public void Setup()
         {
-           
+
         }
 
         [Test]
@@ -24,7 +23,7 @@ namespace LootLoOnline.NUnitTest
         {
             //_visitor = new MongoDbRepository<Visitor>();
             //_LootLoOfferProduct = new MongoDbRepository<LootLoOfferProduct>();
-           // var result = 
+            // var result = 
             //var result = _visitor.GetAll();
             //var result1 = _LootLoOfferProduct.SearchFor(x=> x.OfferProduct.CategoryName=="software");
             Assert.Pass();
@@ -32,7 +31,7 @@ namespace LootLoOnline.NUnitTest
         [Test]
         public void DeleteALL()
         {
-           // _visitor = new MongoDbRepository<Visitor>();
+            // _visitor = new MongoDbRepository<Visitor>();
             var result = _visitor.DeleteAll();
             Assert.Pass();
         }
@@ -42,16 +41,16 @@ namespace LootLoOnline.NUnitTest
             string flipkatAllOffers = Utility.GetApiResponseAsync("rajibmaha", "d2f2e72f8e2a4aff946adb037d647ca1", "https://affiliate-api.flipkart.net/affiliate/offers/v1/dotd/json").Result;
             FlipkartAllOffers allOffers = JsonConvert.DeserializeObject<FlipkartAllOffers>(flipkatAllOffers);
 
-           // _visitor = new MongoDbRepository<Visitor>();
-    
-            foreach( var item in allOffers.dotdList)
+            // _visitor = new MongoDbRepository<Visitor>();
+
+            foreach (var item in allOffers.dotdList)
             {
                 Visitor visitor = new Visitor();
                 visitor.Id = Guid.NewGuid();
                 //visitor.dealsOfTheDayModel = item;
-               // var result = _visitor.Insert(visitor);
+                // var result = _visitor.Insert(visitor);
             }
-            
+
             Assert.Pass();
         }
     }

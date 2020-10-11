@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LootLoOnline.Business", "Lo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LootLoOnline.NUnitTest", "LootLoOnline.NUnitTest\LootLoOnline.NUnitTest.csproj", "{B9D17355-601D-4497-9CD6-9A0A5812537B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LootLoOnline.BatchJob", "LootLoOnline.BatchJob\LootLoOnline.BatchJob.csproj", "{E144D74D-BAE8-4B1A-ACBB-2886ACBDCBD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LootLoOnline.BatchJob", "LootLoOnline.BatchJob\LootLoOnline.BatchJob.csproj", "{E144D74D-BAE8-4B1A-ACBB-2886ACBDCBD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
