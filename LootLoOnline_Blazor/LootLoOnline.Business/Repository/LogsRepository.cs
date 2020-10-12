@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Log = LootLoOnline.Business.Models.Log;
 
-namespace LootLoOnline.Business.Services.Repository
+namespace LootLoOnline.Business.Repository
 {
     public class LogsRepository : DataRepository<Log>, ILogsRepository
     {

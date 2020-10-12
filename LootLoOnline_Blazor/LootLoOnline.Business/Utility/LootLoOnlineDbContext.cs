@@ -26,22 +26,23 @@ namespace LootLoOnline.Business
         }
 
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    if (!optionsBuilder.IsConfigured)
-        //    {
-        //        optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-K9JI0JL; Initial Catalog=LootLoOnlineDatabase; User id=sa;Password=rajib;");
-        //    }
-        //}
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-K9JI0JL; Initial Catalog=LootLoOnlineDatabase; User id=sa;Password=rajib;");
+                //optionsBuilder.UseSqlServer(@"Server=tcp:lootloonlinedb.database.windows.net,1433;Initial Catalog=LootLoOnlineDB;Persist Security Info=False;User ID=llo_admin;Password=lootloonline@2020;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            }
+        }
 
         public DbSet<OfferProduct> OfferProducts { get; set; }
         public DbSet<DealsOfTheDay> DealsOfTheDays { get; set; }
         public DbSet<Log> Logs { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            base.OnConfiguring(optionsBuilder);
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    base.OnConfiguring(optionsBuilder);
+        //}
 
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)

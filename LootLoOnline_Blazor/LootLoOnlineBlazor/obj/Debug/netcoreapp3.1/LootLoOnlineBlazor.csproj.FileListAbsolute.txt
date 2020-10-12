@@ -61,7 +61,8 @@ C:\Users\rajib\Source\Repos\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\net
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Debug\netcoreapp3.1\nlog.config
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Debug\netcoreapp3.1\appsettings.json
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
-D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\lootloonline - Web Deploy1\profile.arm.json
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\lootloonline - Web Deploy\profile.arm.json
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Debug\netcoreapp3.1\LootLoOnlineBlazor.StaticWebAssets.xml
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Debug\netcoreapp3.1\LootLoOnlineBlazor.exe
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Debug\netcoreapp3.1\LootLoOnlineBlazor.deps.json

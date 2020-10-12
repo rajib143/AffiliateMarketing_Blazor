@@ -76,7 +76,6 @@ D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Rel
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\LootLoOnlineBlazor.dll
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\LootLoOnlineBlazor.pdb
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\LootLoOnlineBlazor.genruntimeconfig.cache
-D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Release\netcoreapp3.1\Properties\ServiceDependencies\lootloonline - Web Deploy1\profile.arm.json
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Release\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Release\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Release\netcoreapp3.1\Microsoft.Data.SqlClient.dll
@@ -139,5 +138,4 @@ D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Rel
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Deals.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\Razor\Pages\Deals.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Release\netcoreapp3.1\Properties\serviceDependencies.json
-D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Release\netcoreapp3.1\Properties\serviceDependencies.lootloonline - Web Deploy1.json
-D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Release\netcoreapp3.1\Properties\ServiceDependencies\lootloonline - Web Deploy1\mssql1.arm.json
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Release\netcoreapp3.1\Properties\ServiceDependencies\lootloonline - Web Deploy\profile.arm.json

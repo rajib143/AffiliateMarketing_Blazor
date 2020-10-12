@@ -1,5 +1,5 @@
 using LootLoOnline.Business;
-using LootLoOnline.Business.Services.Repository;
+using LootLoOnline.Business.Repository;
 using NUnit.Framework;
 
 namespace LootLoOnline.NUnitTest

@@ -1,7 +1,7 @@
 using LootLoOnline.Business;
 using LootLoOnline.Business.BusinessClass;
+using LootLoOnline.Business.Repository;
 using LootLoOnline.Business.Services;
-using LootLoOnline.Business.Services.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.ResponseCompression;

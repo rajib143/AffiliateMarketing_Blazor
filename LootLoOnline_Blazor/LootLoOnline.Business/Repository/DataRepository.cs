@@ -7,7 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace LootLoOnline.Business.Services.Repository
+namespace LootLoOnline.Business.Repository
 {
 
     public class DataRepository<T> : IDataRepository<T> where T : class

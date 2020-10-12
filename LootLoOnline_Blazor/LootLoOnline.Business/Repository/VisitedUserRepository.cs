@@ -3,7 +3,7 @@ using LootLoOnline.Business.Models.DBModel;
 using System;
 using System.Threading.Tasks;
 
-namespace LootLoOnline.Business.Services.Repository
+namespace LootLoOnline.Business.Repository
 {
     public class VisitedUserRepository : DataRepository<VisitedUser>, IVisitedUserRepository
     {

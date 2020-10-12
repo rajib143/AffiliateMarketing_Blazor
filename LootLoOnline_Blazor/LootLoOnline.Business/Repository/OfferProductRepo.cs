@@ -3,7 +3,7 @@ using LootLoOnline.Business.Models;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LootLoOnline.Business.Services.Repository
+namespace LootLoOnline.Business.Repository
 {
     public class OfferProductRepository : DataRepository<OfferProduct>, IOfferProductRepository
     {
@@ -17,10 +17,7 @@ namespace LootLoOnline.Business.Services.Repository
         ////    dataRepository = new DataRepository<OfferProduct>();
         ////}
 
-        //public OfferProductRepository(LootLoOnlineDbContext lootLoOnlineDbContext)
-        //{
-        //    dataRepository = new DataRepository<OfferProduct>(lootLoOnlineDbContext);
-        //}
+        
         public OfferProductRepository(LootLoOnlineDbContext lootLoOnlineDbContext) : base(lootLoOnlineDbContext)
         {
         }
