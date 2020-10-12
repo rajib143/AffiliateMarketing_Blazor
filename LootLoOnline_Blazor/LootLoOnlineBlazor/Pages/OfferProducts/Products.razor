@@ -14,14 +14,15 @@ else
     {
         <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box">
-                <a href="/caragoryoffers/{@(offer.productId.Trim())}" target="_blank" @onclick="async () => SaveViewCount(offer)">
+                @*/caragoryoffers/{@(offer.productId.Trim())}*@
+                <a href="@(offer.productUrl)" target="_blank" @onclick="async () => SaveViewCount(offer)">
                     <img class="card-img-top img-fluid img-thumbnail lazy_load" loading="lazy" alt="@(offer.title)" src="@offer.imageUrls_800" data-original="@offer.imageUrls_800" width="200" height="200" lazyload="on" />
                 </a>
                 <div class="info-box-content">
                     <span class="info-box-text">@(offer.shotTitle)</span>
                     <span class="info-box-number">
-                        <small class="text-muted">Selling Price : <span class="badge badge-warning">@(offer.currency + " " + offer.SellingPrice) </span></small><br />
-                        <small class="text-muted">Special Price : <span class="badge badge-success">@(offer.currency+" "+ offer.SpecialPrice)</span></small>
+                        <small class="text-muted">Selling Price : <span class="badge badge-danger">@(offer.currency + " " + offer.SellingPrice) </span></small><br />
+                        <small class="text-muted">Special Price : <span class="badge badge-warning">@(offer.currency+" "+ offer.SpecialPrice)</span></small>
 
                     </span>
                     <span class="info-box-text">
@@ -55,7 +56,8 @@ else
             visitor.LastVisitedDate = DateTime.UtcNow;
             visitor.CreatedDate = DateTime.UtcNow;
             visitor.ProductId = model.productId;
-            visitor.ProductTitle = model.shotTitle;
+            visitor.OfferTitle = model.shotTitle;
+            visitor.OfferName = model.title;
             visitor.ProductId = model.productId;
             visitor.ProductUrl = model.productUrl;
             visitor.CatagoryID = model.CategoryId;

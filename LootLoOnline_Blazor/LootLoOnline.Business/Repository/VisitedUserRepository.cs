@@ -15,7 +15,7 @@ namespace LootLoOnline.Business.Repository
             try
             {
                 int isSuccess = 0;
-                var result = await Get(x => x.IPAddress == visitor.IPAddress );
+                var result = await Get(x => x.IPAddress == visitor.IPAddress && x.OfferName== visitor.OfferName );
 
                 if (result != null)
                 {

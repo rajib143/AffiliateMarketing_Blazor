@@ -199,3 +199,7 @@ D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Deb
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\LootLoOnlineBlazor.dll
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\LootLoOnlineBlazor.pdb
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\LootLoOnlineBlazor.genruntimeconfig.cache
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Home\LatestDealsOfTheDay.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Home\LatestOrdersTableView.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\Razor\Pages\Home\LatestDealsOfTheDay.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Debug\netcoreapp3.1\Razor\Pages\Home\LatestOrdersTableView.razor.g.cs

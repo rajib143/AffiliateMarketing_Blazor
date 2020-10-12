@@ -1,4 +1,5 @@
 ﻿using LootLoOnline.Business.Models;
+using LootLoOnline.Business.Models.DBModel;
 using Microsoft.EntityFrameworkCore;
 
 namespace LootLoOnline.Business
@@ -30,13 +31,14 @@ namespace LootLoOnline.Business
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-K9JI0JL; Initial Catalog=LootLoOnlineDatabase; User id=sa;Password=rajib;");
-                //optionsBuilder.UseSqlServer(@"Server=tcp:lootloonlinedb.database.windows.net,1433;Initial Catalog=LootLoOnlineDB;Persist Security Info=False;User ID=llo_admin;Password=lootloonline@2020;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+               // optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-K9JI0JL; Initial Catalog=LootLoOnlineDatabase; User id=sa;Password=rajib;");
+                optionsBuilder.UseSqlServer(@"Server=tcp:lootloonlinedb.database.windows.net,1433;Initial Catalog=LootLoOnlineDB;Persist Security Info=False;User ID=llo_admin;Password=lootloonline@2020;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }
 
         public DbSet<OfferProduct> OfferProducts { get; set; }
         public DbSet<DealsOfTheDay> DealsOfTheDays { get; set; }
+        public DbSet<VisitedUser> VisitedUsers { get; set; }
         public DbSet<Log> Logs { get; set; }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -45,10 +47,10 @@ namespace LootLoOnline.Business
         //}
 
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    base.OnModelCreating(modelBuilder);
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
         //    modelBuilder.Entity<OfferProduct>(entity =>

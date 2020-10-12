@@ -1,4 +1,4 @@
-﻿@page "/caragoryoffers"
+﻿@page "/catagoryoffers"
 @inject AppStateService appState
 @inject FlipkartOfferAdapter OfferAdapter
 @inject OfferProductRepository offerProductRepo
@@ -216,7 +216,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var offerProducts = await offerProductRepo.GetAllByFilter(1, 100, x => x.shippingCharges == 0 && x.categoryPath.Contains("Mobiles"), m => m.discountPercentage);
+        var offerProducts = await offerProductRepo.GetAllByFilter(1, 150, x => x.shippingCharges == 0 && (x.categoryPath.Contains("Mobiles") || x.categoryPath.Contains("Electronics"))
+        && x.SellingPrice>5000 && x.SellingPrice<50000, m => (m.discountPercentage));
         lootLoOfferProducts = offerProducts.Select(x => new OfferProductViewModel()
         {
             productId = x.productId,
@@ -258,7 +259,18 @@
         {
             // lootLoOfferProducts = readonlylootLoOfferProducts.Where(x => x.discountPercentage.ToString().Contains(searchTerm)|| x.shotTitle.Contains(searchTerm)).ToList();
 
-            var offerProducts = offerProductRepo.GetAllByFilter(1, 100, x => x.shotTitle.Contains(searchTerm) || x.title.Contains(searchTerm), m => m.discountPercentage);
+            var offerProducts = offerProductRepo.GetAllByFilter(1, 100, 
+                x => x.shotTitle.Contains(searchTerm) 
+                || x.title.Contains(searchTerm)
+                || x.categoryPath.Contains(searchTerm)
+                || x.attributes.Contains(searchTerm)
+                || x.offers.Contains(searchTerm)
+                || x.productBrand.Contains(searchTerm)
+                || x.keySpecs.Contains(searchTerm)
+                || x.sellerName.Contains(searchTerm)
+                || x.detailedSpecs.Contains(searchTerm)
+                || x.specificationList.Contains(searchTerm)
+            , m => m.SellingPrice);
             lootLoOfferProducts = offerProducts.Result.Select(x => new OfferProductViewModel()
             {
                 productId = x.productId,

@@ -1,4 +1,4 @@
-﻿
+﻿@inject OfferProductRepository offerProductRepo
 
 <div class="card">
     <div class="card-header">
@@ -20,12 +20,12 @@
             {
                 <li class="item">
                     <div class="product-img">
-                        <img src="@(offer.imageUrl)" alt="@(offer.title)" class="img-size-50">
+                        <img src="@(offer.imageUrls_800)" alt="@(offer.shotTitle)" class="img-size-50">
                     </div>
                     <div class="product-info">
-                        <a href="@(offer.url)" target="_blank" class="product-title">
-                           @(offer.name)
-                            
+                        <a href="@(offer.productUrl)" target="_blank" class="product-title">
+                            @(offer.shotTitle)
+                            <span class="badge badge-success float-right">@(offer.currency+" "+offer.SellingPrice)</span>
                         </a>
                         <span class="product-description">
                             @(offer.title)
@@ -33,17 +33,50 @@
                     </div>
                 </li>
             }
-           
+
         </ul>
     </div>
     <!-- /.card-body -->
     <div class="card-footer text-center">
-        <a href="/alloffers" class="uppercase">View All Offers</a>
+        <a href="/catagoryoffers" class="uppercase">View Other Offers</a>
     </div>
     <!-- /.card-footer -->
 </div>
 
 @code {
-    [Parameter]
-    public IReadOnlyList<DealsOfTheDayModel> recentlyAddedDeals { get; set; }
+    //[Parameter]
+    //public IReadOnlyList<DealsOfTheDayModel> recentlyAddedDeals { get; set; }
+
+    public IList<OfferProductViewModel> recentlyAddedDeals { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var offerProducts = await offerProductRepo.GetAllByFilter(1, 5, x => x.shippingCharges == 0 &&( x.categoryPath.Contains("Mobiles") || x.categoryPath.Contains("Electronics")), m => (m.SpecialPrice));
+        recentlyAddedDeals = offerProducts.Select(x => new OfferProductViewModel()
+        {
+            productId = x.productId,
+            title = x.title,
+            shotTitle = x.shotTitle,
+            codAvailable = x.codAvailable,
+            CreatedDate = x.CreatedDate,
+            currency = x.currency,
+            discountPercentage = x.discountPercentage,
+            imageUrls_200 = x.imageUrls_200,
+            imageUrls_400 = x.imageUrls_400,
+            imageUrls_800 = x.imageUrls_800,
+            inStock = x.inStock,
+            offers = x.offers,
+            productUrl = x.productUrl,
+            SellingPrice = x.SellingPrice,
+            SiteName = x.SiteName,
+            SpecialPrice = x.SpecialPrice,
+            validTill = x.validTill,
+            CategoryId = x.CategoryId,
+            CategoryPath = x.categoryPath
+
+
+        }).ToList();
+
+    }
+
 }

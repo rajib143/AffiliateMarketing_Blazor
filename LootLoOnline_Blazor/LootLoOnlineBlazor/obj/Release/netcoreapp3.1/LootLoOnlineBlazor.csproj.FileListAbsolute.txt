@@ -139,3 +139,7 @@ D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Rel
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\Razor\Pages\Deals.razor.g.cs
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Release\netcoreapp3.1\Properties\serviceDependencies.json
 D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\bin\Release\netcoreapp3.1\Properties\ServiceDependencies\lootloonline - Web Deploy\profile.arm.json
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Home\LatestDealsOfTheDay.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Home\LatestOrdersTableView.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\Razor\Pages\Home\LatestDealsOfTheDay.razor.g.cs
+D:\Work\AffiliateMarketing_Blazor\LootLoOnline_Blazor\LootLoOnlineBlazor\obj\Release\netcoreapp3.1\Razor\Pages\Home\LatestOrdersTableView.razor.g.cs

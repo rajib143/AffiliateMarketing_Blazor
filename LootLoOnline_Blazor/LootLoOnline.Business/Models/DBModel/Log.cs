@@ -10,7 +10,7 @@ namespace LootLoOnline.Business.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long Id { get; set; }
+        public int Id { get; set; }
         public DateTime Date { get; set; }
         public string Thread { get; set; }
         public string Level { get; set; }

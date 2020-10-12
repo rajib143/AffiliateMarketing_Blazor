@@ -11,21 +11,28 @@
     <div class="container-fluid">
 
         <div class="row">
-            <div class="col-md-8">
-                @if (dealsOfTheDayModel != null)
-                {
-                    <OfferDetails dealsOfTheDayModel="dealsOfTheDayModel" />
-                }
-                else if (latestOrders != null)
-                {
-                    <LatestOrders latestOrders="latestOrders" />
-                }
+            <div class="col-md-4">
+                @*@if (dealsOfTheDayModel != null)
+                    {
+                        <OfferDetails dealsOfTheDayModel="dealsOfTheDayModel" />
+                    }*@
+                @*else if (latestOrders != null)
+                    {
+                        <LatestOrders latestOrders="latestOrders" />
+                    }*@
+
+                <LatestOrders></LatestOrders>
             </div>
             <div class="col-md-4">
-                @if (recentlyAddedDeals != null)
+                <LatestDealsOfTheDay></LatestDealsOfTheDay>
+            </div>
+            <div class="col-md-4">
+                <RecentlyAddedProducts />
+                @*@if (recentlyAddedDeals != null)
                 {
+
                     <RecentlyAddedProducts recentlyAddedDeals="recentlyAddedDeals" />
-                }
+                }*@
             </div>
         </div>
 
@@ -52,14 +59,14 @@
 
 @code {
 
-        [Parameter]
-        public string name { get; set; }
+    [Parameter]
+    public string name { get; set; }
     public DealsOfTheDayModel dealsOfTheDayModel { get; set; }
 
     List<string> lstContent = new List<string> { "Welcome to LootLo Online." };
     private List<DealsOfTheDayModel> dealsOfTheDayList { get; set; }
     private static List<DealsOfTheDayModel> readonlyDealsOfTheDayList { get; set; }
-    private static List<Visitor> latestOrders { get; set; }
+    // private static List<Visitor> latestOrders { get; set; }
     private List<DealsOfTheDayModel> recentlyAddedDeals { get; set; }
 
 
@@ -72,17 +79,17 @@
         appState.SetdealsOfTheDay(dealsOfTheDayList);
 
 
-        latestOrders = visitorService.visitorRepository.GetAll().OrderByDescending(x => x.CreatedDate).ToList();
-        recentlyAddedDeals = readonlyDealsOfTheDayList.OrderByDescending(x => x.endTime.UnixTimeToDateTime()).Take(5).ToList();
+        //  latestOrders = visitorService.visitorRepository.GetAll().OrderByDescending(x => x.CreatedDate).ToList();
+        //  recentlyAddedDeals = readonlyDealsOfTheDayList.OrderByDescending(x => x.endTime.UnixTimeToDateTime()).Take(5).ToList();
 
         if (!string.IsNullOrEmpty(name))
         {
             name = name.Replace('{', ' ').Replace('}', ' ').Trim();
-            dealsOfTheDayModel = dealsOfTheDayList.Where(x =>x.name.Contains(name)).FirstOrDefault();
+            dealsOfTheDayModel = dealsOfTheDayList.Where(x => x.name.Contains(name)).FirstOrDefault();
 
             appState.SetPageTitle(name);
             appState.SetMetaTitle(name);
-            appState.SetMetaDescription("LootLo Online - "+name +"-"+dealsOfTheDayModel.title );
+            appState.SetMetaDescription("LootLo Online - " + name + "-" + dealsOfTheDayModel.title);
         }
         else
         {

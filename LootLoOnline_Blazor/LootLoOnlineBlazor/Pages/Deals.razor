@@ -1,6 +1,6 @@
 ﻿@inject AppStateService appState
 @inject IHttpContextAccessor httpContextAccessor
-@inject MongodbVisitorService visitorService
+@inject VisitedUserRepository visitedUserRepo
 @implements IDisposable
 
 
@@ -15,8 +15,9 @@ else
     {
         <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box">
-                <a href="/{@offer.name.Trim()}" target="_blank" @onclick="async () => SaveViewCount(offer)">
-                    <img class="card-img-top img-fluid img-thumbnail lazy_load" loading="lazy" alt="@(offer.name + offer.title)" src="@offer.imageUrl" data-original="@offer.imageUrl" width="200" height="200" lazyload="on"  />
+                @*/{@offer.name.Trim()}*@
+                <a href="@(offer.url)" target="_blank" @onclick="async () => SaveViewCount(offer)">
+                    <img class="card-img-top img-fluid img-thumbnail lazy_load" loading="lazy" alt="@(offer.name + offer.title)" src="@offer.imageUrl" data-original="@offer.imageUrl" width="200" height="200" lazyload="on" />
                 </a>
                 <div class="info-box-content">
                     <span class="info-box-text">@(offer.name)</span>
@@ -58,13 +59,25 @@ else
     {
         if (model != null)
         {
-            string IpAddress = httpContextAccessor.HttpContext.Connection?.RemoteIpAddress.ToString();
-            Visitor visitor = new Visitor();
-            visitor.Id = Guid.NewGuid();
-            visitor.IPAddress = IpAddress;
-            visitor.dealsOfTheDayModel = model;
 
-            visitorService.InsertAvisitor(visitor);
+            string IpAddress = httpContextAccessor.HttpContext.Connection?.RemoteIpAddress.ToString();
+            VisitedUser visitor = new VisitedUser();
+            // visitor.ID = Guid.NewGuid();
+            Random random = new Random();
+
+            visitor.IPAddress = IpAddress;
+            visitor.LastVisitedDate = DateTime.UtcNow;
+            visitor.CreatedDate = DateTime.UtcNow;
+            // visitor.ProductId = model.productId;
+            visitor.OfferTitle = model.title;
+            visitor.OfferName = model.name;
+            visitor.ProductUrl = model.url;
+            //  visitor.CatagoryID = model.CategoryId;
+            visitor.CatagoryPath = model.category;
+            // visitor.Count = random.Next(10, 1000);
+            visitor.ImageUrl = model.imageUrl;
+            visitor.ClickedOnBuyNow = true;
+            visitedUserRepo.InsertAvisitor(visitor);
         }
 
     }
