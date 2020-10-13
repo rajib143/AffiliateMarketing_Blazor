@@ -38,7 +38,7 @@
     </div>
     <!-- /.card-body -->
     <div class="card-footer text-center">
-        <a href="/catagoryoffers" class="uppercase">View Other Offers</a>
+        <a href="/catagoryoffers" class="uppercase">More</a>
     </div>
     <!-- /.card-footer -->
 </div>
@@ -51,7 +51,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var offerProducts = await offerProductRepo.GetAllByFilter(1, 5, x => x.shippingCharges == 0 &&( x.categoryPath.Contains("Mobiles") || x.categoryPath.Contains("Electronics")), m => (m.SpecialPrice));
+        var offerProducts = await offerProductRepo.GetAllByFilter(1, 5, x => x.shippingCharges == 0 && 
+        ( x.categoryPath.Contains("Mobiles") || x.categoryPath.Contains("Electronics")) && x.SpecialPrice<20000, m => (m.validTill));
         recentlyAddedDeals = offerProducts.Select(x => new OfferProductViewModel()
         {
             productId = x.productId,

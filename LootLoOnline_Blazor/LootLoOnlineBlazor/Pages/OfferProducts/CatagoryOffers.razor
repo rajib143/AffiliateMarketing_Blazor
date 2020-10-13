@@ -216,7 +216,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var offerProducts = await offerProductRepo.GetAllByFilter(1, 150, x => x.shippingCharges == 0 && (x.categoryPath.Contains("Mobiles") || x.categoryPath.Contains("Electronics"))
+        var offerProducts = await offerProductRepo.GetAllByFilter(1, 100, x => x.shippingCharges == 0 && (x.categoryPath.Contains("Mobiles") || x.categoryPath.Contains("Electronics"))
         && x.SellingPrice>5000 && x.SellingPrice<50000, m => (m.discountPercentage));
         lootLoOfferProducts = offerProducts.Select(x => new OfferProductViewModel()
         {
@@ -270,7 +270,7 @@
                 || x.sellerName.Contains(searchTerm)
                 || x.detailedSpecs.Contains(searchTerm)
                 || x.specificationList.Contains(searchTerm)
-            , m => m.SellingPrice);
+            , m => m.validTill);
             lootLoOfferProducts = offerProducts.Result.Select(x => new OfferProductViewModel()
             {
                 productId = x.productId,

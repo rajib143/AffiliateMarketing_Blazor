@@ -87,7 +87,7 @@
     {
         string IpAddress = httpContextAccessor.HttpContext.Connection?.RemoteIpAddress.ToString();
 
-        latestOrders = await visitedUserRepo.GetAllByFilter(1, 100, x => x.IPAddress == IpAddress, m => m.CreatedDate);
+        latestOrders = await visitedUserRepo.GetAllByFilter(1, 100, null, m => m.CreatedDate);
     }
 
     public void Dispose()
